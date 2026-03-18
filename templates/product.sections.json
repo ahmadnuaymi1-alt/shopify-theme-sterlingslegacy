@@ -154,7 +154,7 @@
         "separate_section_with_border": false,
         "reveal_on_scroll": true,
         "image_fallback": "1",
-        "image_max_height": 700,
+        "image_max_height": 660,
         "image_padding_top": 28,
         "image_padding_right": 52,
         "image_padding_bottom": 0,
