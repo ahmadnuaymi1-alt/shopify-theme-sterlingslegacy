@@ -198,7 +198,7 @@
         "feature_6mqgy3": {
           "type": "feature",
           "settings": {
-            "icon": "picto-shield",
+            "icon": "picto-star",
             "title": "{{ product.metafields.custom.feature_1_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_1_body.value }}",
@@ -208,7 +208,7 @@
         "feature_WMy8JG": {
           "type": "feature",
           "settings": {
-            "icon": "picto-delivery-truck",
+            "icon": "picto-star",
             "title": "{{ product.metafields.custom.feature_2_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_2_body.value }}",
@@ -218,7 +218,7 @@
         "feature_AEWTFU": {
           "type": "feature",
           "settings": {
-            "icon": "picto-return",
+            "icon": "picto-star",
             "title": "{{ product.metafields.custom.feature_3_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_3_body.value }}",
@@ -228,7 +228,7 @@
         "feature_fggJbp": {
           "type": "feature",
           "settings": {
-            "icon": "picto-customer-support",
+            "icon": "picto-star",
             "title": "{{ product.metafields.custom.feature_4_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_4_body.value }}",
@@ -238,7 +238,7 @@
         "feature_bcWDU7": {
           "type": "feature",
           "settings": {
-            "icon": "picto-lock",
+            "icon": "picto-star",
             "title": "{{ product.metafields.custom.feature_5_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_5_body.value }}",
