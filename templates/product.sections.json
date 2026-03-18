@@ -167,8 +167,6 @@
         "text_position": "center",
         "image_text_gap": 48,
         "content_width": "md",
-        "mobile_image_fit": "cover",
-        "mobile_image_max_height": 400,
         "mobile_collapse_text": true,
         "mobile_text_lines": 4,
         "remove_vertical_spacing": true
