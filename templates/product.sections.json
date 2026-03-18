@@ -150,7 +150,7 @@
       ],
       "name": "Product image with text",
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2c5f4dbb-517c-4be5-9fa0-3e44e8cef29c",
         "separate_section_with_border": false,
         "reveal_on_scroll": true,
         "image_fallback": "1",
@@ -266,7 +266,7 @@
       ],
       "name": "Product features",
       "settings": {
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-4",
         "separate_section_with_border": false,
         "heading": "Why choose us",
         "image_fallback": "2",
@@ -338,7 +338,7 @@
       ],
       "name": "Product FAQ",
       "settings": {
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-4",
         "separate_section_with_border": false,
         "subheading": "Got questions?",
         "title": "Frequently Asked Questions",
