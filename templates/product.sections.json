@@ -140,7 +140,7 @@
           "type": "richtext",
           "settings": {
             "content": "<p>{{ product.metafields.custom.image_with_text_body | metafield_tag }}</p>",
-            "font_size": 19
+            "font_size": 18
           }
         }
       },
@@ -268,7 +268,7 @@
       "settings": {
         "color_scheme": "scheme-4",
         "separate_section_with_border": false,
-        "heading": "Why choose us",
+        "heading": "",
         "image_fallback": "2",
         "image_aspect_ratio": "square",
         "image_border_radius": 0,
