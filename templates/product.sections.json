@@ -28,6 +28,10 @@
             "show_taxes_notice": false
           }
         },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -54,10 +58,6 @@
             "atc_shadow": "0 0 16px 4px rgba(0,0,0,0.12)"
           }
         },
-        "separator": {
-          "type": "separator",
-          "settings": {}
-        },
         "description": {
           "type": "description",
           "settings": {
@@ -80,10 +80,10 @@
         "vendor",
         "title",
         "price",
+        "separator",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "separator",
         "description",
         "complementary_products"
       ],
