@@ -1,0 +1,512 @@
+{% doc %}
+  @prompt
+    create a icon section
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-icon-section-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-icon-section__container-{{ ai_gen_id }} {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-icon-section__heading-{{ ai_gen_id }} {
+    text-align: {{ block.settings.heading_alignment }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+  }
+
+  .ai-icon-section__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat({{ block.settings.columns_desktop }}, 1fr);
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .ai-icon-section__item-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: {{ block.settings.layout }};
+    align-items: {{ block.settings.alignment }};
+    text-align: {{ block.settings.text_alignment }};
+    gap: {{ block.settings.item_gap }}px;
+  }
+
+  .ai-icon-section__icon-wrapper-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ block.settings.icon_background }};
+    border-radius: {{ block.settings.icon_border_radius }}px;
+  }
+
+  .ai-icon-section__icon-{{ ai_gen_id }} {
+    width: calc({{ block.settings.icon_size }}px * 0.6);
+    height: calc({{ block.settings.icon_size }}px * 0.6);
+    object-fit: contain;
+  }
+
+  .ai-icon-section__icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: {{ block.settings.icon_color }};
+  }
+
+  .ai-icon-section__content-{{ ai_gen_id }} {
+    flex: 1;
+  }
+
+  .ai-icon-section__title-{{ ai_gen_id }} {
+    margin: 0 0 8px;
+    color: {{ block.settings.title_color }};
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: 600;
+  }
+
+  .ai-icon-section__text-{{ ai_gen_id }} {
+    margin: 0;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-icon-section__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat({{ block.settings.columns_mobile }}, 1fr);
+    }
+
+    .ai-icon-section__heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.8);
+    }
+  }
+{% endstyle %}
+
+<icon-section-{{ ai_gen_id }}
+  class="ai-icon-section-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-icon-section__container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-icon-section__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ai-icon-section__grid-{{ ai_gen_id }}">
+      {% for i in (1..4) %}
+        {% liquid
+          assign icon_key = 'icon_' | append: i
+          assign title_key = 'title_' | append: i
+          assign text_key = 'text_' | append: i
+
+          assign icon = block.settings[icon_key]
+          assign title = block.settings[title_key]
+          assign text = block.settings[text_key]
+        %}
+
+        {% if icon != blank or title != blank or text != blank %}
+          <div class="ai-icon-section__item-{{ ai_gen_id }}">
+            {% if icon != blank %}
+              <div class="ai-icon-section__icon-wrapper-{{ ai_gen_id }}">
+                <div class="ai-icon-section__icon-{{ ai_gen_id }}">
+                  <img
+                    src="{{ icon | image_url: width: 200 }}"
+                    alt="{{ title | escape }}"
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                  >
+                </div>
+              </div>
+            {% endif %}
+
+            <div class="ai-icon-section__content-{{ ai_gen_id }}">
+              {% if title != blank %}
+                <h3 class="ai-icon-section__title-{{ ai_gen_id }}">{{ title }}</h3>
+              {% endif %}
+
+              {% if text != blank %}
+                <div class="ai-icon-section__text-{{ ai_gen_id }}">{{ text }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</icon-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class IconSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+    }
+
+    customElements.define('icon-section-{{ ai_gen_id }}', IconSection{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Icon section",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why choose us"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Heading spacing",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout direction",
+      "options": [
+        {
+          "value": "column",
+          "label": "Vertical"
+        },
+        {
+          "value": "row",
+          "label": "Horizontal"
+        }
+      ],
+      "default": "column"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Item alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "End"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Grid gap",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Item gap",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Icon style"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon background",
+      "default": "#efefef"
+    },
+    {
+      "type": "range",
+      "id": "icon_border_radius",
+      "label": "Icon border radius",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1c1c1c"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Icon 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_1",
+      "label": "Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title_1",
+      "label": "Title",
+      "default": "Free shipping"
+    },
+    {
+      "type": "richtext",
+      "id": "text_1",
+      "label": "Text",
+      "default": "<p>On orders over $50</p>"
+    },
+    {
+      "type": "header",
+      "content": "Icon 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_2",
+      "label": "Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title_2",
+      "label": "Title",
+      "default": "Easy returns"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2",
+      "label": "Text",
+      "default": "<p>30-day return policy</p>"
+    },
+    {
+      "type": "header",
+      "content": "Icon 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_3",
+      "label": "Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title_3",
+      "label": "Title",
+      "default": "Secure payment"
+    },
+    {
+      "type": "richtext",
+      "id": "text_3",
+      "label": "Text",
+      "default": "<p>Safe and encrypted checkout</p>"
+    },
+    {
+      "type": "header",
+      "content": "Icon 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_4",
+      "label": "Icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title_4",
+      "label": "Title",
+      "default": "24/7 support"
+    },
+    {
+      "type": "richtext",
+      "id": "text_4",
+      "label": "Text",
+      "default": "<p>Always here to help</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon section"
+    }
+  ]
+}
+{% endschema %}
