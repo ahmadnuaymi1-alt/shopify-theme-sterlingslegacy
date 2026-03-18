@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -102,58 +93,6 @@
         "max_image_zoom_level": 3
       }
     },
-    "product_image_with_text_LxUfWm": {
-      "type": "product-image-with-text",
-      "blocks": {
-        "subheading_atKpJK": {
-          "type": "subheading",
-          "settings": {
-            "text": "Subheading"
-          }
-        },
-        "heading_NeUxLB": {
-          "type": "heading",
-          "settings": {
-            "text": "Product feature",
-            "heading_tag": "h2",
-            "font_size": 32
-          }
-        },
-        "richtext_UcD8ft": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Use this text to share information about your product.</p>",
-            "font_size": 16
-          }
-        }
-      },
-      "block_order": [
-        "subheading_atKpJK",
-        "heading_NeUxLB",
-        "richtext_UcD8ft"
-      ],
-      "name": "Product image with text",
-      "settings": {
-        "color_scheme": "",
-        "separate_section_with_border": true,
-        "reveal_on_scroll": true,
-        "image_fallback": "none",
-        "image_max_height": 800,
-        "image_padding_top": 0,
-        "image_padding_right": 0,
-        "image_padding_bottom": 0,
-        "image_padding_left": 0,
-        "image_shadow": "none",
-        "image_border_radius": 0,
-        "image_width": 50,
-        "image_position": "start",
-        "text_alignment": "start",
-        "text_position": "center",
-        "image_text_gap": 48,
-        "content_width": "sm",
-        "remove_vertical_spacing": false
-      }
-    },
     "ss_wave_2_fajK69": {
       "type": "ss-wave-2",
       "name": "SS - Wave #2",
@@ -162,8 +101,8 @@
         "wave_height_mobile": 80,
         "wave_animation": true,
         "wave_rotate": false,
-        "wave_color": "#121212",
-        "background_color": "#FFFFFF",
+        "wave_color": "#f5f5f5",
+        "background_color": "#ffffff",
         "background_gradient": "",
         "border_color": "#000000",
         "margin_top": 0,
@@ -177,6 +116,73 @@
         "border_thickness": 0
       }
     },
+    "product_image_with_text_LxUfWm": {
+      "type": "product-image-with-text",
+      "blocks": {
+        "heading_NeUxLB": {
+          "type": "heading",
+          "settings": {
+            "text": "{{ product.metafields.custom.image_with_text_header.value }}",
+            "heading_tag": "h2",
+            "font_size": 44
+          }
+        },
+        "richtext_UcD8ft": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>{{ product.metafields.custom.image_with_text_body | metafield_tag }}</p>",
+            "font_size": 19
+          }
+        }
+      },
+      "block_order": [
+        "heading_NeUxLB",
+        "richtext_UcD8ft"
+      ],
+      "name": "Product image with text",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "separate_section_with_border": false,
+        "reveal_on_scroll": true,
+        "image_fallback": "1",
+        "image_max_height": 700,
+        "image_padding_top": 28,
+        "image_padding_right": 52,
+        "image_padding_bottom": 0,
+        "image_padding_left": 0,
+        "image_shadow": "0 0 8px 2px rgba(0,0,0,0.08)",
+        "image_border_radius": 0,
+        "image_width": 50,
+        "image_position": "end",
+        "text_alignment": "center",
+        "text_position": "center",
+        "image_text_gap": 48,
+        "content_width": "md",
+        "remove_vertical_spacing": true
+      }
+    },
+    "ss_waves_mdWNE6": {
+      "type": "ss-waves",
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": 310,
+        "wave_curvature": 360,
+        "wave_style": "less",
+        "wave_side": "180",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#ffffff",
+        "wave_color": "#f5f5f5",
+        "margin_top": 0,
+        "margin_bottom": -144,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120
+      }
+    },
     "product_features_GxdYJN": {
       "type": "product-features",
       "blocks": {
@@ -184,9 +190,9 @@
           "type": "feature",
           "settings": {
             "icon": "picto-shield",
-            "title": "Feature one",
+            "title": "{{ product.metafields.custom.feature_1_header.value }}",
             "title_font_size": 16,
-            "text": "Description of this feature",
+            "text": "{{ product.metafields.custom.feature_1_body.value }}",
             "text_font_size": 14
           }
         },
@@ -194,9 +200,9 @@
           "type": "feature",
           "settings": {
             "icon": "picto-delivery-truck",
-            "title": "Feature two",
+            "title": "{{ product.metafields.custom.feature_2_header.value }}",
             "title_font_size": 16,
-            "text": "Description of this feature",
+            "text": "{{ product.metafields.custom.feature_2_body.value }}",
             "text_font_size": 14
           }
         },
@@ -204,9 +210,9 @@
           "type": "feature",
           "settings": {
             "icon": "picto-return",
-            "title": "Feature three",
+            "title": "{{ product.metafields.custom.feature_3_header.value }}",
             "title_font_size": 16,
-            "text": "Description of this feature",
+            "text": "{{ product.metafields.custom.feature_3_body.value }}",
             "text_font_size": 14
           }
         },
@@ -214,9 +220,9 @@
           "type": "feature",
           "settings": {
             "icon": "picto-customer-support",
-            "title": "Feature four",
+            "title": "{{ product.metafields.custom.feature_4_header.value }}",
             "title_font_size": 16,
-            "text": "Description of this feature",
+            "text": "{{ product.metafields.custom.feature_4_body.value }}",
             "text_font_size": 14
           }
         },
@@ -224,9 +230,9 @@
           "type": "feature",
           "settings": {
             "icon": "picto-lock",
-            "title": "Feature five",
+            "title": "{{ product.metafields.custom.feature_5_header.value }}",
             "title_font_size": 16,
-            "text": "Description of this feature",
+            "text": "{{ product.metafields.custom.feature_5_body.value }}",
             "text_font_size": 14
           }
         },
@@ -234,9 +240,9 @@
           "type": "feature",
           "settings": {
             "icon": "picto-star",
-            "title": "Feature six",
+            "title": "{{ product.metafields.custom.feature_6_header.value }}",
             "title_font_size": 16,
-            "text": "Description of this feature",
+            "text": "{{ product.metafields.custom.feature_6_body.value }}",
             "text_font_size": 14
           }
         }
@@ -251,20 +257,20 @@
       ],
       "name": "Product features",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "separate_section_with_border": false,
         "heading": "Why choose us",
-        "image_fallback": "none",
-        "image_aspect_ratio": "portrait",
+        "image_fallback": "2",
+        "image_aspect_ratio": "square",
         "image_border_radius": 0,
         "image_padding_top": 0,
         "image_padding_right": 0,
         "image_padding_bottom": 0,
         "image_padding_left": 0,
-        "image_shadow": "none",
+        "image_shadow": "0 0 8px 2px rgba(0,0,0,0.08)",
         "icon_size": 32,
         "mobile_hide_text": true,
-        "feature_gap": 32
+        "feature_gap": 72
       }
     },
     "product_faq_rbfpHF": {
@@ -273,29 +279,43 @@
         "question_gYNmtU": {
           "type": "question",
           "settings": {
-            "question": "What is the shipping time?",
-            "answer": "<p>Standard shipping takes 7-15 business days depending on your location.</p>"
+            "question": "{{ product.metafields.custom.faq_q1.value }}",
+            "answer": "<p>{{ product.metafields.custom.faq_a1.value }}</p>"
           }
         },
         "question_tFU4tD": {
           "type": "question",
           "settings": {
-            "question": "What is your return policy?",
-            "answer": "<p>We offer a 30-day return policy on all items.</p>"
+            "question": "{{ product.metafields.custom.faq_q2.value }}",
+            "answer": "<p>{{ product.metafields.custom.faq_a2.value }}</p>"
           }
         },
         "question_r9JNwT": {
           "type": "question",
           "settings": {
-            "question": "How can I track my order?",
-            "answer": "<p>You'll receive a tracking number via email once your order ships.</p>"
+            "question": "{{ product.metafields.custom.faq_q3.value }}",
+            "answer": "<p>{{ product.metafields.custom.faq_a3.value }}</p>"
           }
         },
         "question_rLcFt9": {
           "type": "question",
           "settings": {
-            "question": "Do you ship internationally?",
-            "answer": "<p>Yes, we ship worldwide. Shipping costs vary by destination.</p>"
+            "question": "{{ product.metafields.custom.faq_q4.value }}",
+            "answer": "<p>{{ product.metafields.custom.faq_a4.value }}</p>"
+          }
+        },
+        "question_delivery": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "<p>Orders are processed quickly and delivered within:</p><ul><li><strong>Handling time:</strong> 1 to 2 business days (Monday to Friday)</li><li><strong>Transit time:</strong> 6 to 8 business days (Monday to Friday)</li><li><strong>Estimated delivery:</strong> 7 to 10 business days total (Monday to Friday)</li></ul>"
+          }
+        },
+        "question_returns": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day hassle-free return policy. For full eligibility details and step-by-step instructions, please visit our Return Policy page.</p>"
           }
         }
       },
@@ -303,12 +323,14 @@
         "question_gYNmtU",
         "question_tFU4tD",
         "question_r9JNwT",
-        "question_rLcFt9"
+        "question_rLcFt9",
+        "question_delivery",
+        "question_returns"
       ],
       "name": "Product FAQ",
       "settings": {
-        "color_scheme": "",
-        "separate_section_with_border": true,
+        "color_scheme": "scheme-2",
+        "separate_section_with_border": false,
         "subheading": "Got questions?",
         "title": "Frequently Asked Questions",
         "open_first_row": false
@@ -330,36 +352,14 @@
         "title": "Related products",
         "content": ""
       }
-    },
-    "ss_waves_mdWNE6": {
-      "type": "ss-waves",
-      "name": "SS - Wave",
-      "settings": {
-        "wave_height": 300,
-        "wave_curvature": 250,
-        "wave_style": "normal",
-        "wave_side": "0",
-        "animation": false,
-        "animation_duration": 5,
-        "background_color": "#FFFFFF",
-        "wave_color": "#B0DAEB",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "full_width": true,
-        "content_width": 120
-      }
     }
   },
   "order": [
     "main",
-    "product_image_with_text_LxUfWm",
     "ss_wave_2_fajK69",
-    "product_features_GxdYJN",
+    "product_image_with_text_LxUfWm",
     "ss_waves_mdWNE6",
+    "product_features_GxdYJN",
     "product_faq_rbfpHF",
     "related-products"
   ]
