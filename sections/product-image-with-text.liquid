@@ -26,6 +26,11 @@
     #shopify-section-{{ section.id }} .image-with-text--reverse > .product-iwt-image {
       order: 9999;
     }
+    @media screen and (max-width: 699px) {
+      #shopify-section-{{ section.id }} .image-with-text--reverse > .product-iwt-image {
+        order: -1;
+      }
+    }
     @media screen and (min-width: 700px) {
       #shopify-section-{{ section.id }} .image-with-text {
         grid-template-columns: {{ section.settings.image_width }}fr {{ 100 | minus: section.settings.image_width }}fr;
