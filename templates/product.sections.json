@@ -50,7 +50,8 @@
             "atc_button_background": "#1c1c1c",
             "atc_button_text_color": "#ffffff",
             "payment_button_background": "#1c1c1c",
-            "payment_button_text_color": "#1c1c1c"
+            "payment_button_text_color": "#1c1c1c",
+            "atc_shadow": "none"
           }
         },
         "separator": {
@@ -101,6 +102,218 @@
         "max_image_zoom_level": 3
       }
     },
+    "product_image_with_text_LxUfWm": {
+      "type": "product-image-with-text",
+      "blocks": {
+        "subheading_atKpJK": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_NeUxLB": {
+          "type": "heading",
+          "settings": {
+            "text": "Product feature",
+            "heading_tag": "h2",
+            "font_size": 32
+          }
+        },
+        "richtext_UcD8ft": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your product.</p>",
+            "font_size": 16
+          }
+        }
+      },
+      "block_order": [
+        "subheading_atKpJK",
+        "heading_NeUxLB",
+        "richtext_UcD8ft"
+      ],
+      "name": "Product image with text",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "reveal_on_scroll": true,
+        "image_fallback": "none",
+        "image_max_height": 800,
+        "image_padding_top": 0,
+        "image_padding_right": 0,
+        "image_padding_bottom": 0,
+        "image_padding_left": 0,
+        "image_shadow": "none",
+        "image_border_radius": 0,
+        "image_width": 50,
+        "image_position": "start",
+        "text_alignment": "start",
+        "text_position": "center",
+        "image_text_gap": 48,
+        "content_width": "sm",
+        "remove_vertical_spacing": false
+      }
+    },
+    "ss_wave_2_fajK69": {
+      "type": "ss-wave-2",
+      "name": "SS - Wave #2",
+      "settings": {
+        "wave_height": 120,
+        "wave_height_mobile": 80,
+        "wave_animation": true,
+        "wave_rotate": false,
+        "wave_color": "#121212",
+        "background_color": "#FFFFFF",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0
+      }
+    },
+    "product_features_GxdYJN": {
+      "type": "product-features",
+      "blocks": {
+        "feature_6mqgy3": {
+          "type": "feature",
+          "settings": {
+            "icon": "picto-shield",
+            "title": "Feature one",
+            "title_font_size": 16,
+            "text": "Description of this feature",
+            "text_font_size": 14
+          }
+        },
+        "feature_WMy8JG": {
+          "type": "feature",
+          "settings": {
+            "icon": "picto-delivery-truck",
+            "title": "Feature two",
+            "title_font_size": 16,
+            "text": "Description of this feature",
+            "text_font_size": 14
+          }
+        },
+        "feature_AEWTFU": {
+          "type": "feature",
+          "settings": {
+            "icon": "picto-return",
+            "title": "Feature three",
+            "title_font_size": 16,
+            "text": "Description of this feature",
+            "text_font_size": 14
+          }
+        },
+        "feature_fggJbp": {
+          "type": "feature",
+          "settings": {
+            "icon": "picto-customer-support",
+            "title": "Feature four",
+            "title_font_size": 16,
+            "text": "Description of this feature",
+            "text_font_size": 14
+          }
+        },
+        "feature_bcWDU7": {
+          "type": "feature",
+          "settings": {
+            "icon": "picto-lock",
+            "title": "Feature five",
+            "title_font_size": 16,
+            "text": "Description of this feature",
+            "text_font_size": 14
+          }
+        },
+        "feature_g8qHJ3": {
+          "type": "feature",
+          "settings": {
+            "icon": "picto-star",
+            "title": "Feature six",
+            "title_font_size": 16,
+            "text": "Description of this feature",
+            "text_font_size": 14
+          }
+        }
+      },
+      "block_order": [
+        "feature_6mqgy3",
+        "feature_WMy8JG",
+        "feature_AEWTFU",
+        "feature_fggJbp",
+        "feature_bcWDU7",
+        "feature_g8qHJ3"
+      ],
+      "name": "Product features",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "heading": "Why choose us",
+        "image_fallback": "none",
+        "image_aspect_ratio": "portrait",
+        "image_border_radius": 0,
+        "image_padding_top": 0,
+        "image_padding_right": 0,
+        "image_padding_bottom": 0,
+        "image_padding_left": 0,
+        "image_shadow": "none",
+        "icon_size": 32,
+        "mobile_hide_text": true,
+        "feature_gap": 32
+      }
+    },
+    "product_faq_rbfpHF": {
+      "type": "product-faq",
+      "blocks": {
+        "question_gYNmtU": {
+          "type": "question",
+          "settings": {
+            "question": "What is the shipping time?",
+            "answer": "<p>Standard shipping takes 7-15 business days depending on your location.</p>"
+          }
+        },
+        "question_tFU4tD": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day return policy on all items.</p>"
+          }
+        },
+        "question_r9JNwT": {
+          "type": "question",
+          "settings": {
+            "question": "How can I track my order?",
+            "answer": "<p>You'll receive a tracking number via email once your order ships.</p>"
+          }
+        },
+        "question_rLcFt9": {
+          "type": "question",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>Yes, we ship worldwide. Shipping costs vary by destination.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_gYNmtU",
+        "question_tFU4tD",
+        "question_r9JNwT",
+        "question_rLcFt9"
+      ],
+      "name": "Product FAQ",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "subheading": "Got questions?",
+        "title": "Frequently Asked Questions",
+        "open_first_row": false
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -117,10 +330,37 @@
         "title": "Related products",
         "content": ""
       }
+    },
+    "ss_waves_mdWNE6": {
+      "type": "ss-waves",
+      "name": "SS - Wave",
+      "settings": {
+        "wave_height": 300,
+        "wave_curvature": 250,
+        "wave_style": "normal",
+        "wave_side": "0",
+        "animation": false,
+        "animation_duration": 5,
+        "background_color": "#FFFFFF",
+        "wave_color": "#B0DAEB",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 120
+      }
     }
   },
   "order": [
     "main",
+    "product_image_with_text_LxUfWm",
+    "ss_wave_2_fajK69",
+    "product_features_GxdYJN",
+    "ss_waves_mdWNE6",
+    "product_faq_rbfpHF",
     "related-products"
   ]
 }
