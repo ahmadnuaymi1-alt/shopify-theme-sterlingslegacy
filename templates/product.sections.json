@@ -51,7 +51,7 @@
             "atc_button_text_color": "#ffffff",
             "payment_button_background": "#1c1c1c",
             "payment_button_text_color": "#1c1c1c",
-            "atc_shadow": "none"
+            "atc_shadow": "0 0 16px 4px rgba(0,0,0,0.12)"
           }
         },
         "separator": {
