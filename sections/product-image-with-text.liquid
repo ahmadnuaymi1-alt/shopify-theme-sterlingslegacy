@@ -30,10 +30,10 @@
       #shopify-section-{{ section.id }} .image-with-text--reverse > .product-iwt-image {
         order: -1;
       }
-      {%- if section.settings.mobile_image_fit == 'contain' -%}
-        #shopify-section-{{ section.id }} .product-iwt-image > :is(svg, img) {
-          object-fit: contain;
-          max-height: {{ section.settings.mobile_image_max_height }}px;
+      {%- if section.settings.mobile_center_image -%}
+        #shopify-section-{{ section.id }} .product-iwt-image {
+          padding-left: 0;
+          padding-right: 0;
         }
       {%- endif -%}
       {%- if section.settings.mobile_collapse_text -%}
@@ -347,26 +347,11 @@
       "content": "Mobile settings"
     },
     {
-      "type": "select",
-      "id": "mobile_image_fit",
-      "label": "Mobile image fit",
-      "info": "Cover fills the space and may crop. Center shows the full image without cropping.",
-      "options": [
-        { "value": "cover", "label": "Cover (fill & crop)" },
-        { "value": "contain", "label": "Center (full image)" }
-      ],
-      "default": "cover"
-    },
-    {
-      "type": "range",
-      "id": "mobile_image_max_height",
-      "min": 200,
-      "max": 600,
-      "step": 20,
-      "unit": "px",
-      "label": "Mobile image max height",
-      "info": "Only applies when mobile image fit is set to Center.",
-      "default": 400
+      "type": "checkbox",
+      "id": "mobile_center_image",
+      "label": "Center image on mobile",
+      "info": "Removes left/right padding on mobile so the image is evenly centered.",
+      "default": true
     },
     {
       "type": "checkbox",
