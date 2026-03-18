@@ -277,7 +277,7 @@
         "image_padding_bottom": 0,
         "image_padding_left": 0,
         "image_shadow": "0 0 8px 2px rgba(0,0,0,0.08)",
-        "icon_size": 32,
+        "icon_size": 36,
         "mobile_hide_text": true,
         "feature_gap": 72
       }
