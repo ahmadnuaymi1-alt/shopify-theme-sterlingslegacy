@@ -77,6 +77,7 @@
         },
         "offers_B9qNJh": {
           "type": "offers",
+          "disabled": true,
           "settings": {
             "stack_offers": false,
             "offer_1_title": "<strong>Shipping & Returns</strong>",
@@ -88,6 +89,30 @@
             "background": "",
             "text_color": "",
             "border_color": ""
+          }
+        },
+        "feature_with_icon_j7fJW4": {
+          "type": "feature_with_icon",
+          "settings": {
+            "text": "<strong>Enjoy free shipping on all U.S. orders, with estimated delivery in 7-10 business days.</strong>",
+            "link": "",
+            "icon": "picto-delivery-truck",
+            "icon_width": 20,
+            "background": "#fff4e2",
+            "text_color": "#000000",
+            "border_color": "rgba(0,0,0,0)"
+          }
+        },
+        "feature_with_icon_V7eK3K": {
+          "type": "feature_with_icon",
+          "settings": {
+            "text": "<strong>Shop with confidence knowing you’re covered by our 30-day return policy.</strong>",
+            "link": "",
+            "icon": "picto-box",
+            "icon_width": 20,
+            "background": "#fff4e2",
+            "text_color": "#000000",
+            "border_color": "rgba(0,0,0,0)"
           }
         }
       },
@@ -101,7 +126,9 @@
         "buy_buttons",
         "description",
         "complementary_products",
-        "offers_B9qNJh"
+        "offers_B9qNJh",
+        "feature_with_icon_j7fJW4",
+        "feature_with_icon_V7eK3K"
       ],
       "settings": {
         "color_scheme": "scheme-4",
