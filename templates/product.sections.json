@@ -247,6 +247,7 @@
           "type": "feature",
           "settings": {
             "icon": "picto-star",
+            "custom_icon": "shopify://shop_images/800_19.png",
             "title": "{{ product.metafields.custom.feature_1_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_1_body.value }}",
@@ -257,6 +258,7 @@
           "type": "feature",
           "settings": {
             "icon": "picto-star",
+            "custom_icon": "shopify://shop_images/800_19.png",
             "title": "{{ product.metafields.custom.feature_2_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_2_body.value }}",
@@ -267,6 +269,7 @@
           "type": "feature",
           "settings": {
             "icon": "picto-star",
+            "custom_icon": "shopify://shop_images/800_19.png",
             "title": "{{ product.metafields.custom.feature_3_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_3_body.value }}",
@@ -277,6 +280,7 @@
           "type": "feature",
           "settings": {
             "icon": "picto-star",
+            "custom_icon": "shopify://shop_images/800_19.png",
             "title": "{{ product.metafields.custom.feature_4_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_4_body.value }}",
@@ -287,6 +291,7 @@
           "type": "feature",
           "settings": {
             "icon": "picto-star",
+            "custom_icon": "shopify://shop_images/800_19.png",
             "title": "{{ product.metafields.custom.feature_5_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_5_body.value }}",
@@ -297,6 +302,7 @@
           "type": "feature",
           "settings": {
             "icon": "picto-star",
+            "custom_icon": "shopify://shop_images/800_19.png",
             "title": "{{ product.metafields.custom.feature_6_header.value }}",
             "title_font_size": 16,
             "text": "{{ product.metafields.custom.feature_6_body.value }}",
@@ -325,7 +331,7 @@
         "image_padding_bottom": 0,
         "image_padding_left": 0,
         "image_shadow": "none",
-        "icon_size": 36,
+        "icon_size": 64,
         "mobile_hide_text": false,
         "feature_gap": 72
       }
