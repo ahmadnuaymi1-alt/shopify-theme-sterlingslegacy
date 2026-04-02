@@ -20,6 +20,109 @@ Supported variables
 IMPLEMENTATION NOTE: while being a drawer, the sidebar has a completely different structure for the content. We are
 therefore using a different structure for the Shadow DOM template
 {%- endcomment -%}
+
+<style>
+  .header-sidebar__collection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .header-sidebar__collection-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .header-sidebar__collection-img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .header-sidebar__collection-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header-sidebar__collection-name {
+    font-size: 11px;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .header-sidebar__featured {
+    padding: 0.75rem 1rem 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .header-sidebar__featured-heading {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    margin: 0 0 0.75rem;
+  }
+
+  .header-sidebar__featured-product {
+    display: flex;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: inherit;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+
+  .header-sidebar__featured-product:last-child {
+    margin-bottom: 0;
+  }
+
+  .header-sidebar__featured-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .header-sidebar__featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header-sidebar__featured-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-top: 0.1rem;
+  }
+
+  .header-sidebar__featured-title {
+    font-size: 12px;
+    line-height: 1.3;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .header-sidebar__featured-price {
+    font-size: 11px;
+    opacity: 0.6;
+    margin: 0;
+  }
+</style>
 <template id="header-sidebar-template">
   <div part="base">
     <div part="overlay"></div>
@@ -123,33 +226,6 @@ therefore using a different structure for the Shadow DOM template
                 {{- link.title -}}
               </button>
 
-              <ul class="header-sidebar__linklist {% if show_dividers %}divide-y{% endif %} unstyled-list" role="list">
-                {%- for sub_link in link.links -%}
-                  <li>
-                    {%- if sub_link.links.size > 0 -%}
-                      <accordion-disclosure>
-                        <details class="accordion__disclosure group" {% if open_second_level_menus %}open{% endif %}>
-                          <summary class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
-                            {{- sub_link.title -}}
-                            <span class="animated-plus group-expanded:rotate" aria-hidden="true"></span>
-                          </summary>
-
-                          <div class="header-sidebar__nested-linklist">
-                            {%- for sub_sub_link in sub_link.links -%}
-                              <a href="{{ sub_sub_link.url }}" class="link-faded-reverse">{{ sub_sub_link.title }}</a>
-                            {%- endfor -%}
-                          </div>
-                        </details>
-                      </accordion-disclosure>
-                    {%- else -%}
-                      <a href="{{ sub_link.url }}" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
-                        {{- sub_link.title -}}
-                      </a>
-                    {%- endif -%}
-                  </li>
-                {%- endfor -%}
-              </ul>
-
               {%- liquid
                 assign link_title_downcase = link.title | strip | downcase
                 assign mega_menu_block = ''
@@ -161,18 +237,93 @@ therefore using a different structure for the Shadow DOM template
                     assign mega_menu_block = block
                     break
                   endif
-
                 endfor
               -%}
 
-              {%- capture mega_menu_content -%}
-                {%- render 'mega-menu-images', context: 'sidebar', block: mega_menu_block -%}
-              {%- endcapture -%}
+              {%- if mega_menu_block != '' -%}
+                {%- comment -%}Mega menu: show collection image grid{%- endcomment -%}
+                <div class="header-sidebar__collection-grid">
+                  {%- for sub_link in link.links -%}
+                    {%- assign col_handle = sub_link.url | split: '/collections/' | last | split: '?' | first | split: '/' | first -%}
+                    {%- assign col = collections[col_handle] -%}
 
-              {%- if mega_menu_content != blank -%}
-                <div class="header-sidebar__promo scroll-area bleed md:unbleed">
-                  {{- mega_menu_content -}}
+                    <a href="{{ sub_link.url }}" class="header-sidebar__collection-card">
+                      {%- if col.image -%}
+                        <div class="header-sidebar__collection-img">
+                          {{- col.image | image_url: width: col.image.width | image_tag: loading: 'lazy', sizes: '120px', widths: '120,240,360' -}}
+                        </div>
+                      {%- elsif col != blank and col.products.first.featured_image -%}
+                        <div class="header-sidebar__collection-img">
+                          {{- col.products.first.featured_image | image_url: width: col.products.first.featured_image.width | image_tag: loading: 'lazy', sizes: '120px', widths: '120,240,360' -}}
+                        </div>
+                      {%- else -%}
+                        <div class="header-sidebar__collection-img" style="background: #f0f0f0;"></div>
+                      {%- endif -%}
+                      <p class="header-sidebar__collection-name">{{ sub_link.title }}</p>
+                    </a>
+                  {%- endfor -%}
                 </div>
+
+                {%- comment -%}Featured products below collection grid{%- endcomment -%}
+                {%- assign has_sidebar_featured = false -%}
+                {%- for i in (1..3) -%}
+                  {%- assign fp_key = 'featured_product_' | append: i -%}
+                  {%- if mega_menu_block.settings[fp_key] != blank -%}
+                    {%- assign has_sidebar_featured = true -%}
+                    {%- break -%}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {%- if has_sidebar_featured -%}
+                  <div class="header-sidebar__featured">
+                    <p class="header-sidebar__featured-heading">Featured</p>
+                    {%- for i in (1..3) -%}
+                      {%- assign fp_key = 'featured_product_' | append: i -%}
+                      {%- assign featured_product = mega_menu_block.settings[fp_key] -%}
+                      {%- if featured_product != blank -%}
+                        <a href="{{ featured_product.url }}" class="header-sidebar__featured-product">
+                          {%- if featured_product.featured_image -%}
+                            <div class="header-sidebar__featured-img">
+                              {{- featured_product.featured_image | image_url: width: featured_product.featured_image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120' -}}
+                            </div>
+                          {%- endif -%}
+                          <div class="header-sidebar__featured-info">
+                            <p class="header-sidebar__featured-title">{{ featured_product.title }}</p>
+                            <p class="header-sidebar__featured-price">{{ featured_product.price | money }}</p>
+                          </div>
+                        </a>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                {%- endif -%}
+              {%- else -%}
+                {%- comment -%}Regular menu: show text links{%- endcomment -%}
+                <ul class="header-sidebar__linklist {% if show_dividers %}divide-y{% endif %} unstyled-list" role="list">
+                  {%- for sub_link in link.links -%}
+                    <li>
+                      {%- if sub_link.links.size > 0 -%}
+                        <accordion-disclosure>
+                          <details class="accordion__disclosure group" {% if open_second_level_menus %}open{% endif %}>
+                            <summary class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                              {{- sub_link.title -}}
+                              <span class="animated-plus group-expanded:rotate" aria-hidden="true"></span>
+                            </summary>
+
+                            <div class="header-sidebar__nested-linklist">
+                              {%- for sub_sub_link in sub_link.links -%}
+                                <a href="{{ sub_sub_link.url }}" class="link-faded-reverse">{{ sub_sub_link.title }}</a>
+                              {%- endfor -%}
+                            </div>
+                          </details>
+                        </accordion-disclosure>
+                      {%- else -%}
+                        <a href="{{ sub_link.url }}" class="header-sidebar__linklist-button {% if section.settings.sidebar_text_font == 'heading' %}h6{% endif %}">
+                          {{- sub_link.title -}}
+                        </a>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
               {%- endif -%}
             </div>
           {%- endif -%}
