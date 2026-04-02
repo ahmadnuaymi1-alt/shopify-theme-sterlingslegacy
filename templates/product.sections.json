@@ -12,10 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "vendor",
-          "settings": {}
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -28,10 +24,6 @@
             "show_taxes_notice": false
           }
         },
-        "separator": {
-          "type": "separator",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -41,10 +33,6 @@
             "variant_image_options": "",
             "size_chart_page": ""
           }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -90,45 +78,16 @@
             "text_color": "",
             "border_color": ""
           }
-        },
-        "feature_with_icon_j7fJW4": {
-          "type": "feature_with_icon",
-          "settings": {
-            "text": "<strong>Enjoy free shipping on all U.S. orders, with estimated delivery in 7-10 business days.</strong>",
-            "link": "",
-            "icon": "picto-delivery-truck",
-            "icon_width": 20,
-            "background": "#fff4e2",
-            "text_color": "#000000",
-            "border_color": "rgba(0,0,0,0)"
-          }
-        },
-        "feature_with_icon_V7eK3K": {
-          "type": "feature_with_icon",
-          "settings": {
-            "text": "<strong>Shop with confidence knowing you’re covered by our 30-day return policy.</strong>",
-            "link": "",
-            "icon": "picto-box",
-            "icon_width": 20,
-            "background": "#fff4e2",
-            "text_color": "#000000",
-            "border_color": "rgba(0,0,0,0)"
-          }
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "price",
-        "separator",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons",
         "description",
         "complementary_products",
-        "offers_B9qNJh",
-        "feature_with_icon_j7fJW4",
-        "feature_with_icon_V7eK3K"
+        "offers_B9qNJh"
       ],
       "settings": {
         "color_scheme": "scheme-4",
@@ -143,6 +102,23 @@
         "enable_video_looping": true,
         "enable_image_zoom": true,
         "max_image_zoom_level": 3
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "recommendations_count": 10,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": "",
+        "title": "Related products",
+        "content": ""
       }
     },
     "ss_wave_2_fajK69": {
@@ -398,32 +374,15 @@
         "title": "Frequently Asked Questions",
         "open_first_row": false
       }
-    },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "color_scheme": "scheme-4",
-        "separate_section_with_border": true,
-        "hide_product_information": false,
-        "stack_products": false,
-        "recommendations_count": 10,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "horizontal_spacing_factor": 1,
-        "vertical_spacing_factor": 1,
-        "subheading": "",
-        "title": "Related products",
-        "content": ""
-      }
     }
   },
   "order": [
     "main",
+    "related-products",
     "ss_wave_2_fajK69",
     "product_image_with_text_LxUfWm",
     "ss_waves_mdWNE6",
     "product_features_GxdYJN",
-    "product_faq_rbfpHF",
-    "related-products"
+    "product_faq_rbfpHF"
   ]
 }
