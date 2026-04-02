@@ -21,7 +21,9 @@
         "price": {
           "type": "price",
           "settings": {
-            "show_taxes_notice": false
+            "show_taxes_notice": false,
+            "sale_price_color": "",
+            "price_size": "default"
           }
         },
         "variant_picker": {
