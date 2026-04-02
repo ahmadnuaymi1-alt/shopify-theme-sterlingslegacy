@@ -578,53 +578,69 @@
         },
         {
           "type": "header",
-          "content": "t:sections.header.blocks.mega_menu.image_1"
+          "content": "Featured products"
         },
         {
-          "type": "image_picker",
-          "id": "image_1",
-          "label": "t:global.image.image",
-          "info": "t:sections.header.blocks.mega_menu.image_size_recommendation"
+          "type": "product",
+          "id": "featured_product_1",
+          "label": "Featured product 1"
         },
         {
-          "type": "inline_richtext",
-          "id": "image_1_heading",
-          "label": "t:global.text.heading"
+          "type": "product",
+          "id": "featured_product_2",
+          "label": "Featured product 2"
         },
         {
-          "type": "inline_richtext",
-          "id": "image_1_text",
-          "label": "t:global.text.text"
-        },
-        {
-          "type": "url",
-          "id": "image_1_link",
-          "label": "t:global.text.link"
+          "type": "product",
+          "id": "featured_product_3",
+          "label": "Featured product 3"
         },
         {
           "type": "header",
-          "content": "t:sections.header.blocks.mega_menu.image_2"
+          "content": "Layout"
         },
         {
-          "type": "image_picker",
-          "id": "image_2",
-          "label": "t:global.image.image",
-          "info": "t:sections.header.blocks.mega_menu.image_size_recommendation"
+          "type": "range",
+          "id": "featured_width",
+          "min": 20,
+          "max": 50,
+          "step": 5,
+          "unit": "%",
+          "label": "Featured products width",
+          "default": 30
         },
         {
-          "type": "inline_richtext",
-          "id": "image_2_heading",
-          "label": "t:global.text.heading"
+          "type": "range",
+          "id": "collection_columns",
+          "min": 2,
+          "max": 6,
+          "step": 1,
+          "label": "Collection grid columns",
+          "default": 4
         },
         {
-          "type": "inline_richtext",
-          "id": "image_2_text",
-          "label": "t:global.text.text"
-        },
-        {
-          "type": "url",
-          "id": "image_2_link",
-          "label": "t:global.text.link"
+          "type": "select",
+          "id": "image_ratio",
+          "label": "Collection image ratio",
+          "options": [
+            {
+              "value": "square",
+              "label": "Square (1:1)"
+            },
+            {
+              "value": "portrait",
+              "label": "Portrait (3:4)"
+            },
+            {
+              "value": "landscape",
+              "label": "Landscape (4:3)"
+            },
+            {
+              "value": "auto",
+              "label": "Auto (original)"
+            }
+          ],
+          "default": "square"
         }
       ]
     }
