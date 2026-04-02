@@ -28,7 +28,6 @@
         },
         "variant_picker": {
           "type": "variant_picker",
-          "disabled": true,
           "settings": {
             "hide_sold_out_variants": false,
             "selector_style": "dropdown",
@@ -61,12 +60,16 @@
           "settings": {
             "badge_1_icon": "picto-delivery-truck",
             "badge_1_text": "Free Shipping",
+            "badge_1_subtitle": "On all orders",
             "badge_2_icon": "picto-shield",
             "badge_2_text": "Secure Checkout",
+            "badge_2_subtitle": "Hassle-free",
             "badge_3_icon": "picto-return",
             "badge_3_text": "Easy Returns",
+            "badge_3_subtitle": "Fast processing",
             "badge_4_icon": "none",
             "badge_4_text": "",
+            "badge_4_subtitle": "Always here to help",
             "icon_width": 20,
             "background": "",
             "text_color": "",
@@ -82,7 +85,6 @@
         },
         "complementary_products": {
           "type": "complementary_products",
-          "disabled": true,
           "settings": {
             "title": "Pairs well with",
             "products_count": 2,
