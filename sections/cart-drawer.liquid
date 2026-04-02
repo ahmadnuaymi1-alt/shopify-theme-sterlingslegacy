@@ -8,6 +8,10 @@
       {%- render 'cart-progress-bar' -%}
     {%- endif -%}
 
+    {%- if section.settings.show_volume_discount_bar -%}
+      {%- render 'cart-volume-discount-bar' -%}
+    {%- endif -%}
+
     <div class="cart-drawer__items">
       {%- for line_item in cart.items -%}
         {%- render 'line-item', line_item: line_item, show_quantity_selector: true -%}
@@ -232,6 +236,85 @@
       "id": "show_payment_badges",
       "label": "Show payment badges below checkout",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Volume discount bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_volume_discount_bar",
+      "label": "Show volume discount bar",
+      "default": true,
+      "info": "Shows progress toward per-product quantity discounts"
+    },
+    {
+      "type": "range",
+      "id": "vd_tier_1_qty",
+      "label": "Tier 1 — quantity needed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "vd_tier_1_percent",
+      "label": "Tier 1 — discount %",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "default": 15
+    },
+    {
+      "type": "checkbox",
+      "id": "vd_tier_2_enabled",
+      "label": "Enable tier 2",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "vd_tier_2_qty",
+      "label": "Tier 2 — quantity needed",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "vd_tier_2_percent",
+      "label": "Tier 2 — discount %",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "default": 20
+    },
+    {
+      "type": "text",
+      "id": "vd_progress_message",
+      "label": "Message — below tier 1",
+      "default": "Add <strong>[amount]</strong> more of the same product for <strong>[next_tier]</strong>!"
+    },
+    {
+      "type": "text",
+      "id": "vd_partial_message",
+      "label": "Message — between tiers",
+      "default": "You unlocked <strong>[current_tier]</strong>! Add <strong>[amount]</strong> more for <strong>[next_tier]</strong>!"
+    },
+    {
+      "type": "text",
+      "id": "vd_success_message",
+      "label": "Message — all tiers reached",
+      "default": "You unlocked the maximum discount!"
+    },
+    {
+      "type": "color",
+      "id": "vd_bar_color",
+      "label": "Bar color",
+      "default": "#0D8756"
     },
     {
       "type": "header",
