@@ -56,6 +56,23 @@
             "atc_shadow": "0 0 16px 4px rgba(0,0,0,0.12)"
           }
         },
+        "trust_badges_KTDCRV": {
+          "type": "trust_badges",
+          "settings": {
+            "badge_1_icon": "picto-delivery-truck",
+            "badge_1_text": "Free Shipping",
+            "badge_2_icon": "picto-shield",
+            "badge_2_text": "Secure Checkout",
+            "badge_3_icon": "picto-return",
+            "badge_3_text": "Easy Returns",
+            "badge_4_icon": "none",
+            "badge_4_text": "",
+            "icon_width": 20,
+            "background": "",
+            "text_color": "",
+            "border_color": ""
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -65,6 +82,7 @@
         },
         "complementary_products": {
           "type": "complementary_products",
+          "disabled": true,
           "settings": {
             "title": "Pairs well with",
             "products_count": 2,
@@ -96,6 +114,7 @@
         "variant_picker",
         "kaching_bundles_app_block_GDKNhk",
         "buy_buttons",
+        "trust_badges_KTDCRV",
         "description",
         "complementary_products",
         "offers_B9qNJh"
