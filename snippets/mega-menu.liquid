@@ -1,48 +1,85 @@
 {%- comment -%}
 ----------------------------------------------------------------------------------------------------------------------
-MEGA MENU COMPONENT
+MEGA MENU COMPONENT - COLLECTION IMAGE GRID
 ----------------------------------------------------------------------------------------------------------------------
 
-Render the mega-menu. The mega-menu is a kind of menu optimized for showing a large number of items into several
-columns.
+Renders a visual grid of collection images for the mega menu. Each sub-link is displayed as a card
+with the collection's featured image and title.
 
 ********************************************
 Supported variables
 ********************************************
 
-* link: the link from which we need to render the mega-menu. The link must always be a second level link, but it can
-        also be empty (no links), which is the case if the merchant only want to show images, for instance.
+* link: the link from which we need to render the mega-menu
 * block: the block containing all the information about the menu to render
 {%- endcomment -%}
 
-<div class="mega-menu {% if block.settings.images_position == 'left' %}mega-menu--reverse{% endif %}" {{ block.shopify_attributes }}>
+<style>
+  .mega-menu__collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.25rem;
+    padding: 1.5rem 2rem;
+    width: 100%;
+  }
+
+  .mega-menu__collection-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .mega-menu__collection-img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .mega-menu__collection-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .mega-menu__collection-card:hover .mega-menu__collection-img img {
+    transform: scale(1.05);
+  }
+
+  .mega-menu__collection-name {
+    font-size: 13px;
+    line-height: 1.3;
+    margin: 0;
+  }
+</style>
+
+<div class="mega-menu" {{ block.shopify_attributes }}>
   {%- if link.levels > 0 -%}
-    <ul class="mega-menu__linklist unstyled-list">
+    <div class="mega-menu__collection-grid">
       {%- for sub_link in link.links -%}
-        <li class="v-stack justify-items-start gap-5">
-          <a href="{{ sub_link.url }}" class="h6">{{ sub_link.title }}</a>
+        {%- assign col_handle = sub_link.url | split: '/collections/' | last | split: '?' | first | split: '/' | first -%}
+        {%- assign col = collections[col_handle] -%}
 
-          {%- if sub_link.links.size > 0 -%}
-            <ul class="v-stack gap-2.5 unstyled-list">
-              {%- for sub_sub_link in sub_link.links -%}
-                <li>
-                  <a href="{{ sub_sub_link.url }}" class="link-faded">{{ sub_sub_link.title }}</a>
-                </li>
-              {%- endfor -%}
-            </ul>
+        <a href="{{ sub_link.url }}" class="mega-menu__collection-card group">
+          {%- if col.image -%}
+            <div class="mega-menu__collection-img overflow-hidden">
+              {{- col.image | image_url: width: col.image.width | image_tag: loading: 'lazy', sizes: '180px', widths: '180,360,540', class: 'zoom-image' -}}
+            </div>
+          {%- elsif col != blank and col.products.first.featured_image -%}
+            <div class="mega-menu__collection-img overflow-hidden">
+              {{- col.products.first.featured_image | image_url: width: col.products.first.featured_image.width | image_tag: loading: 'lazy', sizes: '180px', widths: '180,360,540', class: 'zoom-image' -}}
+            </div>
+          {%- else -%}
+            <div class="mega-menu__collection-img" style="background: #f0f0f0;"></div>
           {%- endif -%}
-        </li>
+          <p class="mega-menu__collection-name h6">{{ sub_link.title }}</p>
+        </a>
       {%- endfor -%}
-    </ul>
-  {%- endif -%}
-
-  {%- capture mega_menu_content -%}
-    {%- render 'mega-menu-images', context: 'menu', block: block -%}
-  {%- endcapture -%}
-
-  {%- if mega_menu_content != blank -%}
-    <div class="mega-menu__promo">
-      {{- mega_menu_content -}}
     </div>
   {%- endif -%}
 </div>
