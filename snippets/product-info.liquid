@@ -378,6 +378,9 @@ Supported variables
               </style>
             {%- endif -%}
 
+          {%- when 'payment_icons' -%}
+            {%- render 'payment-icons-block', block: block -%}
+
           {%- when 'pickup_availability' -%}
             {%- if product != blank -%}
               {%- render 'pickup-availability', product_variant: product.selected_or_first_available_variant -%}
