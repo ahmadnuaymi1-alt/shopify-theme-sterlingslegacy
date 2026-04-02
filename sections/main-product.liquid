@@ -1302,7 +1302,10 @@ quick buy information in a template, that will be extracted in JS, which ensures
             { "value": "picto-love", "label": "Love" },
             { "value": "picto-star", "label": "Star" },
             { "value": "picto-success", "label": "Checkmark" },
-            { "value": "picto-award-gift", "label": "Award" }
+            { "value": "picto-award-gift", "label": "Award" },
+            { "value": "picto-customer-support", "label": "Support" },
+            { "value": "picto-plane", "label": "Plane" },
+            { "value": "picto-timer", "label": "Timer" }
           ],
           "default": "picto-delivery-truck"
         },
@@ -1315,8 +1318,14 @@ quick buy information in a template, that will be extracted in JS, which ensures
         {
           "type": "text",
           "id": "badge_1_text",
-          "label": "Text",
+          "label": "Title",
           "default": "Free Shipping"
+        },
+        {
+          "type": "text",
+          "id": "badge_1_subtitle",
+          "label": "Subtitle",
+          "default": "On all orders"
         },
         {
           "type": "header",
@@ -1337,9 +1346,12 @@ quick buy information in a template, that will be extracted in JS, which ensures
             { "value": "picto-love", "label": "Love" },
             { "value": "picto-star", "label": "Star" },
             { "value": "picto-success", "label": "Checkmark" },
-            { "value": "picto-award-gift", "label": "Award" }
+            { "value": "picto-award-gift", "label": "Award" },
+            { "value": "picto-customer-support", "label": "Support" },
+            { "value": "picto-plane", "label": "Plane" },
+            { "value": "picto-timer", "label": "Timer" }
           ],
-          "default": "picto-shield"
+          "default": "picto-return"
         },
         {
           "type": "image_picker",
@@ -1350,8 +1362,14 @@ quick buy information in a template, that will be extracted in JS, which ensures
         {
           "type": "text",
           "id": "badge_2_text",
-          "label": "Text",
-          "default": "Secure Checkout"
+          "label": "Title",
+          "default": "30-Day Returns"
+        },
+        {
+          "type": "text",
+          "id": "badge_2_subtitle",
+          "label": "Subtitle",
+          "default": "Hassle-free"
         },
         {
           "type": "header",
@@ -1372,9 +1390,12 @@ quick buy information in a template, that will be extracted in JS, which ensures
             { "value": "picto-love", "label": "Love" },
             { "value": "picto-star", "label": "Star" },
             { "value": "picto-success", "label": "Checkmark" },
-            { "value": "picto-award-gift", "label": "Award" }
+            { "value": "picto-award-gift", "label": "Award" },
+            { "value": "picto-customer-support", "label": "Support" },
+            { "value": "picto-plane", "label": "Plane" },
+            { "value": "picto-timer", "label": "Timer" }
           ],
-          "default": "picto-return"
+          "default": "picto-timer"
         },
         {
           "type": "image_picker",
@@ -1385,12 +1406,18 @@ quick buy information in a template, that will be extracted in JS, which ensures
         {
           "type": "text",
           "id": "badge_3_text",
-          "label": "Text",
-          "default": "Easy Returns"
+          "label": "Title",
+          "default": "Ships in 24hrs"
+        },
+        {
+          "type": "text",
+          "id": "badge_3_subtitle",
+          "label": "Subtitle",
+          "default": "Fast processing"
         },
         {
           "type": "header",
-          "content": "Badge 4 (optional)"
+          "content": "Badge 4"
         },
         {
           "type": "select",
@@ -1407,9 +1434,12 @@ quick buy information in a template, that will be extracted in JS, which ensures
             { "value": "picto-love", "label": "Love" },
             { "value": "picto-star", "label": "Star" },
             { "value": "picto-success", "label": "Checkmark" },
-            { "value": "picto-award-gift", "label": "Award" }
+            { "value": "picto-award-gift", "label": "Award" },
+            { "value": "picto-customer-support", "label": "Support" },
+            { "value": "picto-plane", "label": "Plane" },
+            { "value": "picto-timer", "label": "Timer" }
           ],
-          "default": "none"
+          "default": "picto-customer-support"
         },
         {
           "type": "image_picker",
@@ -1420,7 +1450,14 @@ quick buy information in a template, that will be extracted in JS, which ensures
         {
           "type": "text",
           "id": "badge_4_text",
-          "label": "Text"
+          "label": "Title",
+          "default": "24/7 Support"
+        },
+        {
+          "type": "text",
+          "id": "badge_4_subtitle",
+          "label": "Subtitle",
+          "default": "Always here to help"
         },
         {
           "type": "header",
@@ -1430,11 +1467,11 @@ quick buy information in a template, that will be extracted in JS, which ensures
           "type": "range",
           "id": "icon_width",
           "min": 16,
-          "max": 32,
+          "max": 40,
           "step": 2,
           "unit": "px",
           "label": "Icon size",
-          "default": 20
+          "default": 24
         },
         {
           "type": "color",
