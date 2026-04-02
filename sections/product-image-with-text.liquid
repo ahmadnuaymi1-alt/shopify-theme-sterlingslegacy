@@ -30,6 +30,13 @@
       #shopify-section-{{ section.id }} .image-with-text--reverse > .product-iwt-image {
         order: -1;
       }
+      #shopify-section-{{ section.id }} .product-iwt-image {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      #shopify-section-{{ section.id }} .product-iwt-image > :is(svg, img) {
+        border-radius: {{ section.settings.image_border_radius | default: 12 | at_least: 8 }}px;
+      }
       {%- for block in section.blocks -%}
         {%- if block.type == 'heading' -%}
           #shopify-section-{{ section.id }} .product-iwt-block-{{ block.id }} {
@@ -42,12 +49,6 @@
           }
         {%- endif -%}
       {%- endfor -%}
-      {%- if section.settings.mobile_center_image -%}
-        #shopify-section-{{ section.id }} .product-iwt-image {
-          padding-left: 0;
-          padding-right: 0;
-        }
-      {%- endif -%}
       {%- if section.settings.mobile_collapse_text -%}
         #shopify-section-{{ section.id }} .product-iwt-richtext {
           display: -webkit-box;
@@ -85,6 +86,13 @@
       }
       #shopify-section-{{ section.id }} .image-with-text--reverse {
         grid-template-columns: {{ 100 | minus: section.settings.image_width }}fr {{ section.settings.image_width }}fr;
+      }
+    }
+
+    @media screen and (max-width: 699px) {
+      .shopify-section--product-image-with-text .section-spacing,
+      .shopify-section--product-image-with-text + .shopify-section--product-features .section-spacing {
+        --section-vertical-spacing-override: 1.25rem;
       }
     }
   </style>
