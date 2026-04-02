@@ -55,6 +55,10 @@
             "atc_shadow": "0 0 16px 4px rgba(0,0,0,0.12)"
           }
         },
+        "payment_icons_C8t33Y": {
+          "type": "payment_icons",
+          "settings": {}
+        },
         "trust_badges_KTDCRV": {
           "type": "trust_badges",
           "settings": {
@@ -116,6 +120,7 @@
         "variant_picker",
         "kaching_bundles_app_block_GDKNhk",
         "buy_buttons",
+        "payment_icons_C8t33Y",
         "trust_badges_KTDCRV",
         "description",
         "complementary_products",
@@ -129,7 +134,7 @@
         "center_basic_info": false,
         "desktop_media_layout": "carousel_thumbnails_bottom",
         "desktop_media_grid_gap": 30,
-        "mobile_controls": "dots",
+        "mobile_controls": "free_scroll",
         "enable_media_autoplay": false,
         "enable_video_looping": true,
         "enable_image_zoom": true,
