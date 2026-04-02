@@ -140,7 +140,7 @@
       "type": "related-products",
       "settings": {
         "color_scheme": "scheme-4",
-        "separate_section_with_border": true,
+        "separate_section_with_border": false,
         "hide_product_information": false,
         "stack_products": false,
         "recommendations_count": 10,
@@ -203,7 +203,7 @@
       ],
       "name": "Product image with text",
       "settings": {
-        "color_scheme": "scheme-2c5f4dbb-517c-4be5-9fa0-3e44e8cef29c",
+        "color_scheme": "scheme-07b8cdbd-62bf-48a8-8bbc-01ed61b7155e",
         "separate_section_with_border": false,
         "reveal_on_scroll": true,
         "image_fallback": "1",
