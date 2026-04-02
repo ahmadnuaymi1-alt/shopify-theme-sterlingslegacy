@@ -29,6 +29,8 @@
     "product_color_display": "hide",
     "cart_type": "drawer",
     "cart_icon": "shopping_bag",
+    "cart_show_free_shipping_bar": true,
+    "cart_free_shipping_threshold": "50",
     "favicon": "shopify://shop_images/Gemini_Generated_Image_fnj387fnj387fnj3-modified.png",
     "content_for_index": [],
     "blocks": {
@@ -103,18 +105,16 @@
       },
       "scheme-2c5f4dbb-517c-4be5-9fa0-3e44e8cef29c": {
         "settings": {
-          "background": "#f5f5f5",
+          "background": "#ffffff",
           "background_gradient": "",
           "text_color": "#1c1c1c",
-          "primary_button_background": "#1c1c1c",
+          "primary_button_background": "#2b555a",
           "primary_button_text_color": "#ffffff",
           "circle_button_background": "#ffffff",
           "circle_button_icon": "#1c1c1c"
         }
       }
-    },
-    "cart_show_free_shipping_bar": true,
-    "cart_free_shipping_threshold": "50"
+    }
   },
   "installed_preset_name": "Prestige",
   "presets": {

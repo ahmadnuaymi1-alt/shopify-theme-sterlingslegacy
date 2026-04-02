@@ -19,12 +19,14 @@
           "settings": {
             "menu_item": "Watches",
             "images_position": "right",
-            "image_1_heading": "",
+            "image_1": "shopify://shop_images/AURELIUS-TIMEPIECE-MENS-WATCH-LEATHER-STRAP-LUMINOUS-HANDS-gold-watch-white-dial-brown-leather-strap-beige-box.png",
+            "image_1_heading": "Aurelius Timepiece",
             "image_1_text": "",
-            "image_1_link": "",
-            "image_2_heading": "",
+            "image_1_link": "/products/aurelius-timepiece-mens-watch-leather-strap-with-luminous-hands",
+            "image_2": "shopify://shop_images/TIMBERLIGHT-MENS-WOODEN-WATCH-NATURAL-FINISH-close-up-dark-textured-surface-smoke-background.jpg",
+            "image_2_heading": "Timberlight Wooden Watch",
             "image_2_text": "",
-            "image_2_link": ""
+            "image_2_link": "/products/timberlight-mens-wooden-watch-with-natural-finish"
           }
         },
         "mega_eyewear": {
@@ -32,12 +34,14 @@
           "settings": {
             "menu_item": "Eyewear",
             "images_position": "right",
-            "image_1_heading": "",
+            "image_1": "shopify://shop_images/TITANIUM-HORIZON-AVIATOR-SUNGLASSES-silver-frame-blue-gradient-lenses-angled-view.jpg",
+            "image_1_heading": "Titanium Horizon",
             "image_1_text": "",
-            "image_1_link": "",
-            "image_2_heading": "",
+            "image_1_link": "/products/titanium-horizon-aviator-sunglasses-in-polished-metal-with-gradient-lenses",
+            "image_2": "shopify://shop_images/ECLIPSE-VISION-AVIATOR-SUNGLASSES-POLARIZED-LENSES-gold-frame-blue-green-gradient-lenses-black-temples.jpg",
+            "image_2_heading": "Eclipse Vision",
             "image_2_text": "",
-            "image_2_link": ""
+            "image_2_link": "/products/eclipse-vision-aviator-sunglasses-with-polarized-lenses"
           }
         },
         "mega_clothing": {
@@ -45,12 +49,14 @@
           "settings": {
             "menu_item": "Clothing",
             "images_position": "right",
-            "image_1_heading": "",
+            "image_1": "shopify://shop_images/WILDWOOD-LEATHER-BOMBER-JACKET-VINTAGE-FINISH-beige-jacket-front-view-zipper-pockets.jpg",
+            "image_1_heading": "Wildwood Bomber Jacket",
             "image_1_text": "",
-            "image_1_link": "",
-            "image_2_heading": "",
+            "image_1_link": "/products/wildwood-leather-bomber-jacket-with-vintage-finish",
+            "image_2": "shopify://shop_images/CEDAR-GROVE-JACKET-male-model-wearing-brown-corduroy-jacket-sherpa-collar.png",
+            "image_2_heading": "Cedar Grove Corduroy",
             "image_2_text": "",
-            "image_2_link": ""
+            "image_2_link": "/products/cedar-grove-jacket-corduroy-jacket-with-classic-fit"
           }
         },
         "mega_accessories": {
@@ -58,12 +64,14 @@
           "settings": {
             "menu_item": "Accessories",
             "images_position": "right",
-            "image_1_heading": "",
+            "image_1": "shopify://shop_images/Western-Cowboy-Zinc-Alloy-Bolo-Tie-man-wearing.png",
+            "image_1_heading": "Western Bolo Tie",
             "image_1_text": "",
-            "image_1_link": "",
-            "image_2_heading": "",
+            "image_1_link": "/products/western-cowboy-zinc-alloy-bolo-tie-with-natural-stone-pattern",
+            "image_2": "shopify://shop_images/TIMBER-HAVEN-WOOD-JEWELRY-BOX-open-multiple-compartments-jewelry-displayed.jpg",
+            "image_2_heading": "Timber Haven Jewelry Box",
             "image_2_text": "",
-            "image_2_link": ""
+            "image_2_link": "/products/timber-haven-solid-walnut-and-cherry-wood-jewelry-box-with-elegant-finish"
           }
         }
       },
