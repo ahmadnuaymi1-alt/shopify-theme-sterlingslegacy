@@ -1,0 +1,127 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+CART PROGRESS BAR
+----------------------------------------------------------------------------------------------------------------------
+
+Visual progress bar for cart drawer showing progress toward free shipping threshold.
+Wraps the existing free-shipping-bar web component with a visual bar overlay.
+The bar fill width is calculated server-side and auto-updates on cart changes
+because Prestige's CartDrawer replaces all innerHTML on cart state changes.
+{%- endcomment -%}
+
+{%- liquid
+  assign calculated_total_price = 0
+
+  for line_item in cart.items
+    if line_item.requires_shipping
+      assign calculated_total_price = calculated_total_price | plus: line_item.final_line_price
+    endif
+  endfor
+
+  assign total_cart_discount = 0
+  for discount_application in cart.cart_level_discount_applications
+    assign total_cart_discount = total_cart_discount | plus: discount_application.total_allocated_amount
+  endfor
+
+  assign calculated_total_price = calculated_total_price | minus: total_cart_discount
+  assign threshold_cents = settings.cart_free_shipping_threshold | times: 100
+
+  if threshold_cents > 0
+    assign progress_pct = calculated_total_price | times: 100.0 | divided_by: threshold_cents
+    if progress_pct > 100
+      assign progress_pct = 100
+    endif
+  else
+    assign progress_pct = 100
+  endif
+
+  assign goal_reached = false
+  if progress_pct >= 100
+    assign goal_reached = true
+  endif
+-%}
+
+{%- if cart.requires_shipping -%}
+  <div class="cart-progress-bar">
+    <free-shipping-bar class="free-shipping-bar cart-progress-bar__message" threshold="{{ settings.cart_free_shipping_threshold }}" total-price="{{ calculated_total_price }}" reached-message="{{ 'cart.free_shipping_bar.limit_reached_html' | t | escape }}" unreached-message="{{ 'cart.free_shipping_bar.limit_unreached_html' | t | escape }}">
+      <span class="text-subdued">&nbsp;</span>
+    </free-shipping-bar>
+
+    <div class="cart-progress-bar__track">
+      <div class="cart-progress-bar__fill {% if goal_reached %}cart-progress-bar__fill--complete{% endif %}" style="width: {{ progress_pct }}%;">
+        <div class="cart-progress-bar__icon">
+          {%- if goal_reached -%}
+            <svg aria-hidden="true" focusable="false" fill="none" width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5"/>
+            </svg>
+          {%- else -%}
+            <svg aria-hidden="true" focusable="false" fill="none" width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="6" width="15" height="13" rx="1"/>
+              <path d="M16 10h4l3 4v5h-3"/>
+              <circle cx="7" cy="20" r="2"/>
+              <circle cx="20" cy="20" r="2"/>
+              <path d="M10 20h6"/>
+            </svg>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+<style>
+  .cart-progress-bar {
+    padding-block: 0.75rem;
+    padding-inline: var(--drawer-body-padding-inline, 1.25rem);
+    margin-inline: calc(-1 * var(--drawer-body-padding-inline, 1.25rem));
+    border-block-end: 1px solid rgb(var(--text-color) / 0.08);
+  }
+
+  .cart-progress-bar__message {
+    display: block;
+    text-align: center;
+    margin-block-end: 0.625rem;
+    font-size: 0.8125rem;
+  }
+
+  .cart-progress-bar__track {
+    height: 5px;
+    background: rgb(var(--text-color) / 0.08);
+    border-radius: 100px;
+    overflow: visible;
+    position: relative;
+  }
+
+  .cart-progress-bar__fill {
+    height: 100%;
+    background: rgb(var(--text-color));
+    border-radius: 100px;
+    transition: width 0.4s ease;
+    position: relative;
+    min-width: 26px;
+  }
+
+  .cart-progress-bar__fill--complete {
+    background: #2e7d32;
+  }
+
+  .cart-progress-bar__icon {
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgb(var(--text-color));
+    color: rgb(var(--background));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.15);
+  }
+
+  .cart-progress-bar__fill--complete .cart-progress-bar__icon {
+    background: #2e7d32;
+  }
+</style>

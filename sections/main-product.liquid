@@ -406,6 +406,23 @@ quick buy information in a template, that will be extracted in JS, which ensures
           "id": "show_taxes_notice",
           "label": "t:sections.main_product.blocks.price.show_taxes_notice",
           "default": false
+        },
+        {
+          "type": "color",
+          "id": "sale_price_color",
+          "label": "Price color",
+          "info": "Applies to the main displayed price."
+        },
+        {
+          "type": "select",
+          "id": "price_size",
+          "label": "Price size",
+          "options": [
+            { "value": "default", "label": "Default" },
+            { "value": "large", "label": "Large" },
+            { "value": "extra_large", "label": "Extra large" }
+          ],
+          "default": "default"
         }
       ]
     },
@@ -1258,6 +1275,309 @@ quick buy information in a template, that will be extracted in JS, which ensures
           "type": "color",
           "id": "border_color",
           "label": "t:global.colors.border"
+        }
+      ]
+    },
+    {
+      "type": "trust_badges",
+      "name": "Trust badges",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Badge 1"
+        },
+        {
+          "type": "select",
+          "id": "badge_1_icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "picto-delivery-truck", "label": "Delivery truck" },
+            { "value": "picto-shield", "label": "Shield" },
+            { "value": "picto-lock", "label": "Lock" },
+            { "value": "picto-return", "label": "Return" },
+            { "value": "picto-credit-card", "label": "Credit card" },
+            { "value": "picto-box", "label": "Box" },
+            { "value": "picto-love", "label": "Love" },
+            { "value": "picto-star", "label": "Star" },
+            { "value": "picto-success", "label": "Checkmark" },
+            { "value": "picto-award-gift", "label": "Award" }
+          ],
+          "default": "picto-delivery-truck"
+        },
+        {
+          "type": "image_picker",
+          "id": "badge_1_custom_icon",
+          "label": "Custom icon",
+          "info": "Overrides the icon above. 48x48px recommended."
+        },
+        {
+          "type": "text",
+          "id": "badge_1_text",
+          "label": "Text",
+          "default": "Free Shipping"
+        },
+        {
+          "type": "header",
+          "content": "Badge 2"
+        },
+        {
+          "type": "select",
+          "id": "badge_2_icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "picto-delivery-truck", "label": "Delivery truck" },
+            { "value": "picto-shield", "label": "Shield" },
+            { "value": "picto-lock", "label": "Lock" },
+            { "value": "picto-return", "label": "Return" },
+            { "value": "picto-credit-card", "label": "Credit card" },
+            { "value": "picto-box", "label": "Box" },
+            { "value": "picto-love", "label": "Love" },
+            { "value": "picto-star", "label": "Star" },
+            { "value": "picto-success", "label": "Checkmark" },
+            { "value": "picto-award-gift", "label": "Award" }
+          ],
+          "default": "picto-shield"
+        },
+        {
+          "type": "image_picker",
+          "id": "badge_2_custom_icon",
+          "label": "Custom icon",
+          "info": "Overrides the icon above. 48x48px recommended."
+        },
+        {
+          "type": "text",
+          "id": "badge_2_text",
+          "label": "Text",
+          "default": "Secure Checkout"
+        },
+        {
+          "type": "header",
+          "content": "Badge 3"
+        },
+        {
+          "type": "select",
+          "id": "badge_3_icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "picto-delivery-truck", "label": "Delivery truck" },
+            { "value": "picto-shield", "label": "Shield" },
+            { "value": "picto-lock", "label": "Lock" },
+            { "value": "picto-return", "label": "Return" },
+            { "value": "picto-credit-card", "label": "Credit card" },
+            { "value": "picto-box", "label": "Box" },
+            { "value": "picto-love", "label": "Love" },
+            { "value": "picto-star", "label": "Star" },
+            { "value": "picto-success", "label": "Checkmark" },
+            { "value": "picto-award-gift", "label": "Award" }
+          ],
+          "default": "picto-return"
+        },
+        {
+          "type": "image_picker",
+          "id": "badge_3_custom_icon",
+          "label": "Custom icon",
+          "info": "Overrides the icon above. 48x48px recommended."
+        },
+        {
+          "type": "text",
+          "id": "badge_3_text",
+          "label": "Text",
+          "default": "Easy Returns"
+        },
+        {
+          "type": "header",
+          "content": "Badge 4 (optional)"
+        },
+        {
+          "type": "select",
+          "id": "badge_4_icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "picto-delivery-truck", "label": "Delivery truck" },
+            { "value": "picto-shield", "label": "Shield" },
+            { "value": "picto-lock", "label": "Lock" },
+            { "value": "picto-return", "label": "Return" },
+            { "value": "picto-credit-card", "label": "Credit card" },
+            { "value": "picto-box", "label": "Box" },
+            { "value": "picto-love", "label": "Love" },
+            { "value": "picto-star", "label": "Star" },
+            { "value": "picto-success", "label": "Checkmark" },
+            { "value": "picto-award-gift", "label": "Award" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "badge_4_custom_icon",
+          "label": "Custom icon",
+          "info": "Overrides the icon above. 48x48px recommended."
+        },
+        {
+          "type": "text",
+          "id": "badge_4_text",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 16,
+          "max": 32,
+          "step": 2,
+          "unit": "px",
+          "label": "Icon size",
+          "default": 20
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border color"
+        }
+      ]
+    },
+    {
+      "type": "quick_features",
+      "name": "Quick features",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Feature 1"
+        },
+        {
+          "type": "select",
+          "id": "feature_1_icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "picto-lock", "label": "Lock" },
+            { "value": "picto-shield", "label": "Shield" },
+            { "value": "picto-delivery-truck", "label": "Delivery truck" },
+            { "value": "picto-return", "label": "Return" },
+            { "value": "picto-credit-card", "label": "Credit card" },
+            { "value": "picto-box", "label": "Box" },
+            { "value": "picto-star", "label": "Star" },
+            { "value": "picto-success", "label": "Checkmark" },
+            { "value": "picto-love", "label": "Love" },
+            { "value": "picto-award-gift", "label": "Award" }
+          ],
+          "default": "picto-lock"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_1_custom_icon",
+          "label": "Custom icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_1_text",
+          "label": "Text",
+          "default": "Secure Checkout"
+        },
+        {
+          "type": "header",
+          "content": "Feature 2"
+        },
+        {
+          "type": "select",
+          "id": "feature_2_icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "picto-lock", "label": "Lock" },
+            { "value": "picto-shield", "label": "Shield" },
+            { "value": "picto-delivery-truck", "label": "Delivery truck" },
+            { "value": "picto-return", "label": "Return" },
+            { "value": "picto-credit-card", "label": "Credit card" },
+            { "value": "picto-box", "label": "Box" },
+            { "value": "picto-star", "label": "Star" },
+            { "value": "picto-success", "label": "Checkmark" },
+            { "value": "picto-love", "label": "Love" },
+            { "value": "picto-award-gift", "label": "Award" }
+          ],
+          "default": "picto-delivery-truck"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_2_custom_icon",
+          "label": "Custom icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_2_text",
+          "label": "Text",
+          "default": "Free Shipping"
+        },
+        {
+          "type": "header",
+          "content": "Feature 3"
+        },
+        {
+          "type": "select",
+          "id": "feature_3_icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "picto-lock", "label": "Lock" },
+            { "value": "picto-shield", "label": "Shield" },
+            { "value": "picto-delivery-truck", "label": "Delivery truck" },
+            { "value": "picto-return", "label": "Return" },
+            { "value": "picto-credit-card", "label": "Credit card" },
+            { "value": "picto-box", "label": "Box" },
+            { "value": "picto-star", "label": "Star" },
+            { "value": "picto-success", "label": "Checkmark" },
+            { "value": "picto-love", "label": "Love" },
+            { "value": "picto-award-gift", "label": "Award" }
+          ],
+          "default": "picto-return"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_3_custom_icon",
+          "label": "Custom icon"
+        },
+        {
+          "type": "text",
+          "id": "feature_3_text",
+          "label": "Text",
+          "default": "Easy Returns"
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 14,
+          "max": 28,
+          "step": 2,
+          "unit": "px",
+          "label": "Icon size",
+          "default": 18
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color"
         }
       ]
     },

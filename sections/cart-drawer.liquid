@@ -5,7 +5,7 @@
     <p class="h5 text-center">{{ 'cart.general.empty' | t }}</p>
   {%- else -%}
     {%- if settings.cart_show_free_shipping_bar -%}
-      {%- render 'free-shipping-bar' -%}
+      {%- render 'cart-progress-bar' -%}
     {%- endif -%}
 
     <div class="cart-drawer__items">
@@ -143,10 +143,33 @@
             {%- render 'button', type: 'submit', content: checkout_button, name: 'checkout', stretch: true -%}
           {%- endif -%}
         </div>
+
+        {%- if section.settings.show_payment_badges and shop.enabled_payment_types.size > 0 -%}
+          <ul class="cart-drawer__payment-badges unstyled-list" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              <li>{{- type | payment_type_svg_tag -}}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
       </form>
     </div>
   {%- endif -%}
 </cart-drawer>
+
+<style>
+  .cart-drawer__payment-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.375rem;
+    padding-block-start: 0.75rem;
+    opacity: 0.5;
+  }
+  .cart-drawer__payment-badges svg {
+    height: 22px;
+    width: auto;
+  }
+</style>
 
 {% schema %}
 {
@@ -202,6 +225,12 @@
       "type": "checkbox",
       "id": "show_price_in_checkout_button",
       "label": "t:sections.cart_drawer.show_price_in_checkout_button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_badges",
+      "label": "Show payment badges below checkout",
       "default": true
     },
     {
