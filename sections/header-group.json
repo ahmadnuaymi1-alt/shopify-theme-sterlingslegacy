@@ -11,6 +11,29 @@
   "type": "header",
   "name": "Header group",
   "sections": {
+    "announcement_bar_3TTrf8": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_Him9HQ": {
+          "type": "message",
+          "settings": {
+            "text": "FREE SHIPPING ON ALL ORDERS WITHIN THE UNITED STATES"
+          }
+        }
+      },
+      "block_order": [
+        "message_Him9HQ"
+      ],
+      "name": "t:sections.announcement_bar.name",
+      "settings": {
+        "color_scheme": "",
+        "enable_sticky": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "desktop_font_size": 11,
+        "mobile_font_size": 10
+      }
+    },
     "header": {
       "type": "header",
       "blocks": {
@@ -21,6 +44,7 @@
             "images_position": "right",
             "featured_product_1": "aurelius-timepiece-mens-watch-leather-strap-with-luminous-hands",
             "featured_product_2": "timberlight-mens-wooden-watch-with-natural-finish",
+            "featured_product_3": "",
             "featured_width": 30,
             "collection_columns": 4,
             "image_ratio": "square"
@@ -33,6 +57,7 @@
             "images_position": "right",
             "featured_product_1": "titanium-horizon-aviator-sunglasses-in-polished-metal-with-gradient-lenses",
             "featured_product_2": "eclipse-vision-aviator-sunglasses-with-polarized-lenses",
+            "featured_product_3": "",
             "featured_width": 30,
             "collection_columns": 4,
             "image_ratio": "square"
@@ -45,6 +70,7 @@
             "images_position": "right",
             "featured_product_1": "urban-explorer-mens-jacket-canvas-camouflage-with-retro-lapel-design",
             "featured_product_2": "hawthorne-jacket-mens-stand-collar-solid-color-jacket-with-premium-knit-fabric",
+            "featured_product_3": "",
             "featured_width": 30,
             "collection_columns": 4,
             "image_ratio": "square"
@@ -57,6 +83,7 @@
             "images_position": "right",
             "featured_product_1": "western-cowboy-zinc-alloy-bolo-tie-with-natural-stone-pattern",
             "featured_product_2": "timber-haven-solid-walnut-and-cherry-wood-jewelry-box-with-elegant-finish",
+            "featured_product_3": "",
             "featured_width": 30,
             "collection_columns": 4,
             "image_ratio": "square"
@@ -99,6 +126,7 @@
     }
   },
   "order": [
+    "announcement_bar_3TTrf8",
     "header"
   ]
 }
