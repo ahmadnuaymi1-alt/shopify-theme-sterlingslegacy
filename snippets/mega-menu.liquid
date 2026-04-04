@@ -180,11 +180,11 @@ Supported variables
             <a href="{{ sub_link.url }}" class="mega-menu__collection-card group">
               {%- if col.image -%}
                 <div class="mega-menu__collection-img overflow-hidden">
-                  {{- col.image | image_url: width: col.image.width | image_tag: loading: 'lazy', sizes: '180px', widths: '180,360,540', class: 'zoom-image' -}}
+                  {{- col.image | image_url: width: col.image.width | image_tag: loading: 'lazy', sizes: '260px', widths: '260,520,780', class: 'zoom-image' -}}
                 </div>
               {%- elsif col != blank and col.products.first.featured_image -%}
                 <div class="mega-menu__collection-img overflow-hidden">
-                  {{- col.products.first.featured_image | image_url: width: col.products.first.featured_image.width | image_tag: loading: 'lazy', sizes: '180px', widths: '180,360,540', class: 'zoom-image' -}}
+                  {{- col.products.first.featured_image | image_url: width: col.products.first.featured_image.width | image_tag: loading: 'lazy', sizes: '260px', widths: '260,520,780', class: 'zoom-image' -}}
                 </div>
               {%- else -%}
                 <div class="mega-menu__collection-img" style="background: #f0f0f0;"></div>

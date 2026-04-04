@@ -250,11 +250,11 @@ therefore using a different structure for the Shadow DOM template
                     <a href="{{ sub_link.url }}" class="header-sidebar__collection-card">
                       {%- if col.image -%}
                         <div class="header-sidebar__collection-img">
-                          {{- col.image | image_url: width: col.image.width | image_tag: loading: 'lazy', sizes: '120px', widths: '120,240,360' -}}
+                          {{- col.image | image_url: width: col.image.width | image_tag: loading: 'lazy', sizes: '200px', widths: '200,400,600' -}}
                         </div>
                       {%- elsif col != blank and col.products.first.featured_image -%}
                         <div class="header-sidebar__collection-img">
-                          {{- col.products.first.featured_image | image_url: width: col.products.first.featured_image.width | image_tag: loading: 'lazy', sizes: '120px', widths: '120,240,360' -}}
+                          {{- col.products.first.featured_image | image_url: width: col.products.first.featured_image.width | image_tag: loading: 'lazy', sizes: '200px', widths: '200,400,600' -}}
                         </div>
                       {%- else -%}
                         <div class="header-sidebar__collection-img" style="background: #f0f0f0;"></div>
