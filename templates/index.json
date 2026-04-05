@@ -54,63 +54,115 @@
         "controls_color": "#ffffff"
       }
     },
-    "faq_dVtrMB": {
-      "type": "faq",
+    "collection_watches": {
+      "type": "collection-list",
       "blocks": {
-        "category_P6EMt4": {
-          "type": "category",
+        "col_watches": {
+          "type": "collection",
           "settings": {
-            "title": "Order",
-            "icon": "none",
-            "icon_width": 16
-          }
-        },
-        "question_aJpyNg": {
-          "type": "question",
-          "settings": {
-            "question": "Do you ship overseas?",
-            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
-          }
-        },
-        "question_mJ6dik": {
-          "type": "question",
-          "settings": {
-            "question": "How long will it take to get my orders?",
-            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
-          }
-        },
-        "question_gLw67V": {
-          "type": "question",
-          "settings": {
-            "question": "Any question?",
-            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "collection": "luxury-watches",
+            "expand_collection": true,
+            "content_position": "place-self-center text-center",
+            "title": "Luxury Watches",
+            "button_text": "View Products",
+            "button_style": "solid",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
           }
         }
       },
       "block_order": [
-        "category_P6EMt4",
-        "question_aJpyNg",
-        "question_mJ6dik",
-        "question_gLw67V"
+        "col_watches"
       ],
-      "disabled": true,
-      "name": "t:sections.faq.presets.faq.name",
       "settings": {
         "color_scheme": "",
-        "separate_section_with_border": true,
-        "show_categories": false,
-        "subheading": "Need help?",
-        "title": "Frequently Asked Questions",
-        "content": ""
+        "separate_section_with_border": false,
+        "image_size": "md",
+        "show_text_outside": false,
+        "space_items": false,
+        "stack_collections": false,
+        "collections_per_row_desktop": 1,
+        "stack_collections_mobile": false,
+        "collections_per_row_mobile": "1",
+        "subheading": "",
+        "title": ""
       }
     },
-    "featured_collections_7xbXpw": {
-      "type": "featured-collections",
+    "collection_shirts": {
+      "type": "collection-list",
       "blocks": {
-        "collection_xjefdd": {
+        "col_shirts": {
           "type": "collection",
           "settings": {
-            "collection": "all-products",
+            "collection": "shirts",
+            "expand_collection": true,
+            "content_position": "place-self-center text-center",
+            "title": "Shirts",
+            "button_text": "View Products",
+            "button_style": "solid",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "col_shirts"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "image_size": "md",
+        "show_text_outside": false,
+        "space_items": false,
+        "stack_collections": false,
+        "collections_per_row_desktop": 1,
+        "stack_collections_mobile": false,
+        "collections_per_row_mobile": "1",
+        "subheading": "",
+        "title": ""
+      }
+    },
+    "collection_jackets": {
+      "type": "collection-list",
+      "blocks": {
+        "col_jackets": {
+          "type": "collection",
+          "settings": {
+            "collection": "jackets-outerwear",
+            "expand_collection": true,
+            "content_position": "place-self-center text-center",
+            "title": "Jackets & Outerwear",
+            "button_text": "View Products",
+            "button_style": "solid",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "col_jackets"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "image_size": "md",
+        "show_text_outside": false,
+        "space_items": false,
+        "stack_collections": false,
+        "collections_per_row_desktop": 1,
+        "stack_collections_mobile": false,
+        "collections_per_row_mobile": "1",
+        "subheading": "",
+        "title": ""
+      }
+    },
+    "featured_trending": {
+      "type": "featured-collections",
+      "blocks": {
+        "col_trending": {
+          "type": "collection",
+          "settings": {
+            "collection": "trending-now",
             "products_count": 8,
             "title": "",
             "link_url": "",
@@ -119,19 +171,18 @@
         }
       },
       "block_order": [
-        "collection_xjefdd"
+        "col_trending"
       ],
-      "name": "t:sections.featured_collections.presets.featured_collections.name",
       "settings": {
-        "color_scheme": "scheme-4",
+        "color_scheme": "",
         "separate_section_with_border": true,
         "hide_product_information": false,
-        "stack_products": false,
+        "stack_products": true,
         "products_per_row_mobile": "2",
         "products_per_row_desktop": 4,
         "horizontal_spacing_factor": 1,
         "vertical_spacing_factor": 1,
-        "subheading": ""
+        "subheading": "Trending Now"
       }
     },
     "image_with_text_EA8nYd": {
@@ -162,7 +213,6 @@
         "heading_e6rawd",
         "richtext_LDPAXA"
       ],
-      "name": "t:sections.image_with_text.presets.image_with_text.name",
       "settings": {
         "color_scheme": "scheme-4",
         "separate_section_with_border": true,
@@ -176,8 +226,10 @@
   },
   "order": [
     "slideshow",
-    "faq_dVtrMB",
-    "featured_collections_7xbXpw",
+    "collection_watches",
+    "collection_shirts",
+    "collection_jackets",
+    "featured_trending",
     "image_with_text_EA8nYd"
   ]
 }
