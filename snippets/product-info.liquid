@@ -503,7 +503,8 @@ Supported variables
                     {%- if block.settings[custom_icon_key] != blank -%}
                       {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
                       {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings[custom_icon_key].width }}{%- endcapture -%}
-                      {{- block.settings[custom_icon_key] | image_url: width: block.settings[custom_icon_key].width | image_tag: sizes: sizes, widths: widths, class: 'constrained-image', style: '--image-max-width: ' | append: block.settings.icon_width | append: 'px' -}}
+                      {%- capture style -%}--image-max-width: {{ block.settings.icon_width }}px{%- endcapture -%}
+                      {{- block.settings[custom_icon_key] | image_url: width: block.settings[custom_icon_key].width | image_tag: sizes: sizes, widths: widths, class: 'constrained-image', style: style -}}
                     {%- elsif block.settings[icon_key] != 'none' -%}
                       {%- render 'icon' with block.settings[icon_key], width: block.settings.icon_width -%}
                     {%- endif -%}
@@ -534,7 +535,8 @@ Supported variables
                     {%- if block.settings[custom_icon_key] != blank -%}
                       {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
                       {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings[custom_icon_key].width }}{%- endcapture -%}
-                      {{- block.settings[custom_icon_key] | image_url: width: block.settings[custom_icon_key].width | image_tag: sizes: sizes, widths: widths, class: 'constrained-image', style: '--image-max-width: ' | append: block.settings.icon_width | append: 'px' -}}
+                      {%- capture style -%}--image-max-width: {{ block.settings.icon_width }}px{%- endcapture -%}
+                      {{- block.settings[custom_icon_key] | image_url: width: block.settings[custom_icon_key].width | image_tag: sizes: sizes, widths: widths, class: 'constrained-image', style: style -}}
                     {%- elsif block.settings[icon_key] != 'none' -%}
                       {%- render 'icon' with block.settings[icon_key], width: block.settings.icon_width -%}
                     {%- endif -%}
