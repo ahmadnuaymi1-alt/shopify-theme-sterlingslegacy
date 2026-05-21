@@ -145,6 +145,13 @@ Supported variables
         <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
         {{- variant_compare_at_price -}}
       </compare-at-price>
+
+      {%- if context == 'card' -%}
+        {%- assign card_savings = variant.compare_at_price | minus: variant.price -%}
+        <span class="product-price-row__savings product-price-row__savings--card">
+          Save {{ card_savings | money_without_trailing_zeros }}
+        </span>
+      {%- endif -%}
     {%- endif -%}
   {%- else -%}
     {%- comment -%}

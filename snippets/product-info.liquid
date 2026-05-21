@@ -130,12 +130,20 @@ Supported variables
               {%- assign product_title = 'general.on_boarding.product_title' | t -%}
             {%- endif -%}
 
+            {%- if block.settings.enable_mobile_title_size -%}
+              <style>
+                @media (max-width: 749px) {
+                  .product-title-{{ block.id }} { font-size: {{ block.settings.mobile_title_size }}px !important; line-height: 1.2; }
+                }
+              </style>
+            {%- endif -%}
+
             {%- if request.page_type == 'product' and context == 'main_product' -%}
-              <h1 class="product-title {{ block.settings.heading_tag }}">
+              <h1 class="product-title product-title-{{ block.id }} {{ block.settings.heading_tag }}">
                 {{- product_title -}}
               </h1>
             {%- else -%}
-              <h2 class="product-title {{ block.settings.heading_tag }}">
+              <h2 class="product-title product-title-{{ block.id }} {{ block.settings.heading_tag }}">
                 <a href="{{ product.url }}">{{ product_title }}</a>
               </h2>
             {%- endif -%}
@@ -154,7 +162,15 @@ Supported variables
 
           {%- when 'price' -%}
             {%- if product.selected_or_first_available_variant != nil -%}
-              <div class="v-stack {% if block.settings.price_size == 'large' %}price-list--large{% elsif block.settings.price_size == 'extra_large' %}price-list--xl{% endif %}">
+              {%- liquid
+                assign sl_variant = product.selected_or_first_available_variant
+                assign sl_show_savings = block.settings.show_savings
+                assign sl_savings = 0
+                if sl_variant.compare_at_price > sl_variant.price
+                  assign sl_savings = sl_variant.compare_at_price | minus: sl_variant.price
+                endif
+              -%}
+              <div class="v-stack price-block-{{ block.id }} {% if block.settings.price_size == 'large' %}price-list--large{% elsif block.settings.price_size == 'extra_large' %}price-list--xl{% endif %}">
                 {%- if block.settings.sale_price_color != blank and block.settings.sale_price_color != 'rgba(0,0,0,0)' -%}
                   <style>
                     #shopify-section-{{ section.id }} [data-block-id="{{ block.id }}"] sale-price {
@@ -162,7 +178,37 @@ Supported variables
                     }
                   </style>
                 {%- endif -%}
-                {%- render 'price-list', product: product, variant: product.selected_or_first_available_variant, context: 'product' -%}
+                {%- if block.settings.enable_custom_price_size -%}
+                  <style>
+                    .price-block-{{ block.id }} sale-price {
+                      font-size: {{ block.settings.custom_price_size }}px !important;
+                      line-height: 1.1 !important;
+                    }
+                    .price-block-{{ block.id }} compare-at-price {
+                      font-size: {{ block.settings.custom_price_size | times: 0.82 | round }}px !important;
+                    }
+                    @media (max-width: 749px) {
+                      .price-block-{{ block.id }} sale-price {
+                        font-size: {{ block.settings.custom_price_size_mobile }}px !important;
+                      }
+                      .price-block-{{ block.id }} compare-at-price {
+                        font-size: {{ block.settings.custom_price_size_mobile | times: 0.82 | round }}px !important;
+                      }
+                    }
+                  </style>
+                {%- endif -%}
+
+                <div class="product-price-row">
+                  <div class="product-price-row__left">
+                    {%- render 'price-list', product: product, variant: sl_variant, context: 'product' -%}
+
+                    {%- if sl_show_savings and sl_savings > 0 -%}
+                      <span class="product-price-row__savings">
+                        Save {{ sl_savings | money_without_trailing_zeros }}
+                      </span>
+                    {%- endif -%}
+                  </div>
+                </div>
 
                 {%- if block.settings.show_taxes_notice -%}
                   <p class="text-sm text-subdued">
@@ -544,6 +590,43 @@ Supported variables
                   </div>
                 {%- endif -%}
               {%- endfor -%}
+
+              {%- liquid
+                assign qf_variant = product.selected_or_first_available_variant
+                assign qf_show_low_stock = false
+                if block.settings.show_low_stock and qf_variant.inventory_management != blank and qf_variant.inventory_quantity > 0 and qf_variant.inventory_quantity <= block.settings.low_stock_threshold
+                  assign qf_show_low_stock = true
+                endif
+              -%}
+              {%- if qf_show_low_stock -%}
+                {%- liquid
+                  assign qf_stock_pct = 0
+                  if block.settings.low_stock_threshold > 0
+                    assign qf_stock_pct = qf_variant.inventory_quantity | times: 100.0 | divided_by: block.settings.low_stock_threshold | at_most: 100 | at_least: 0
+                  endif
+                -%}
+                <div class="quick-feature quick-feature--low-stock{% if block.settings.show_low_stock_progress_bar %} quick-feature--with-bar{% endif %}">
+                  <div class="quick-feature__row">
+                    <span class="quick-feature__icon-slot" style="width: {{ block.settings.icon_width }}px; height: {{ block.settings.icon_width }}px;" aria-hidden="true">
+                      <span class="low-stock-badge__pulse"></span>
+                    </span>
+                    <span>{{ block.settings.low_stock_label | default: 'Low Stock — Order Soon' }}</span>
+                  </div>
+                  {%- if block.settings.show_low_stock_progress_bar -%}
+                    <div class="low-stock-bar-wrap">
+                      <div class="low-stock-bar" role="progressbar" aria-valuenow="{{ qf_stock_pct | round }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ block.settings.low_stock_label | escape }}">
+                        <div class="low-stock-bar__fill" style="width: {{ qf_stock_pct }}%;"></div>
+                      </div>
+                      {%- case block.settings.low_stock_bar_amount -%}
+                        {%- when 'percent' -%}
+                          <span class="low-stock-bar__amount">{{ qf_stock_pct | round }}%</span>
+                        {%- when 'units' -%}
+                          <span class="low-stock-bar__amount">{{ qf_variant.inventory_quantity }} left</span>
+                      {%- endcase -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
             {%- endcapture -%}
 
             {%- if quick_features_html != blank -%}

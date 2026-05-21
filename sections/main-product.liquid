@@ -377,6 +377,26 @@ quick buy information in a template, that will be extracted in JS, which ensures
             }
           ],
           "default": "h3"
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_mobile_title_size",
+          "label": "Override title size on mobile",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "mobile_title_size",
+          "label": "Mobile title size",
+          "min": 14,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "default": 22
         }
       ]
     },
@@ -423,6 +443,42 @@ quick buy information in a template, that will be extracted in JS, which ensures
             { "value": "extra_large", "label": "Extra large" }
           ],
           "default": "default"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_custom_price_size",
+          "label": "Override price size",
+          "info": "Fine-tune desktop and mobile price font size.",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "custom_price_size",
+          "label": "Desktop price size (px)",
+          "min": 16,
+          "max": 48,
+          "step": 1,
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "custom_price_size_mobile",
+          "label": "Mobile price size (px)",
+          "min": 14,
+          "max": 40,
+          "step": 1,
+          "default": 20
+        },
+        {
+          "type": "header",
+          "content": "Savings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_savings",
+          "label": "Show savings amount ($)",
+          "info": "Appears next to the price when compare-at price is higher.",
+          "default": true
         }
       ]
     },
@@ -1602,6 +1658,50 @@ quick buy information in a template, that will be extracted in JS, which ensures
           "id": "feature_3_text",
           "label": "Text",
           "default": "Easy Returns"
+        },
+        {
+          "type": "header",
+          "content": "Low stock indicator"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_low_stock",
+          "label": "Show low-stock as 4th feature",
+          "info": "Appears only when inventory is tracked and at or below the threshold.",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "low_stock_threshold",
+          "label": "Low-stock threshold (units)",
+          "min": 10,
+          "max": 400,
+          "step": 10,
+          "default": 50
+        },
+        {
+          "type": "text",
+          "id": "low_stock_label",
+          "label": "Low-stock label",
+          "default": "Low Stock — Order Soon"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_low_stock_progress_bar",
+          "label": "Show progress bar",
+          "info": "Adds a bar under the label. Fill = current stock / threshold.",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "low_stock_bar_amount",
+          "label": "Show fill amount",
+          "options": [
+            { "value": "none", "label": "Don't show" },
+            { "value": "percent", "label": "Percentage (e.g. 30%)" },
+            { "value": "units", "label": "Units (e.g. 3 left)" }
+          ],
+          "default": "none"
         },
         {
           "type": "header",

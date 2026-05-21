@@ -1,0 +1,257 @@
+/* -------------------------------------------------------------------------
+ * Sterling's Legacy — custom overrides
+ * Loaded after theme.css in layout/theme.liquid
+ * ------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------
+ * Price row: price + savings | divider | low-stock badge
+ * ----------------------------------------------------------- */
+.product-price-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.75rem;
+  row-gap: 0.35rem;
+}
+
+.product-price-row__left {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 0.55rem;
+  row-gap: 0.25rem;
+}
+
+/* Normalize baselines across sale/compare/save so they line up cleanly */
+.product-price-row__left price-list,
+.product-price-row__left .price-list {
+  display: inline-flex !important;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 0.55rem;
+  row-gap: 0;
+}
+
+.product-price-row__left sale-price,
+.product-price-row__left compare-at-price {
+  display: inline !important;
+  line-height: 1.1 !important;
+}
+
+/* Sale price: slightly bigger + bold for hierarchy */
+.product-price-row__left sale-price {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* Compare-at: softer, smaller, strike */
+.product-price-row__left compare-at-price {
+  font-size: 0.9em;
+  opacity: 0.65;
+}
+
+/* "Save $X" as a soft pill — common modern e-commerce pattern */
+.product-price-row__savings {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background: #FDECEA;
+  color: #B4232C;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  position: relative;
+  top: -1px;
+}
+
+/* Smaller variant for product cards on collection pages */
+.product-price-row__savings--card {
+  padding: 0.15rem 0.4rem;
+  font-size: 0.72rem;
+  border-radius: 4px;
+  margin-left: 0.35rem;
+  top: 0;
+  vertical-align: middle;
+}
+
+@media (max-width: 749px) {
+  .product-price-row__savings--card {
+    font-size: 0.68rem;
+    padding: 0.12rem 0.35rem;
+    margin-left: 0.25rem;
+  }
+}
+
+.product-price-row__divider {
+  display: inline-block;
+  width: 1px;
+  height: 1.4rem;
+  background: currentColor;
+  opacity: 0.22;
+  align-self: center;
+}
+
+/* Low-stock as 4th quick-feature — align dot to icon column */
+.quick-feature--low-stock {
+  color: #C0392B;
+  font-weight: 600;
+}
+
+.quick-feature--with-bar {
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch !important;
+  gap: 0.35rem;
+}
+
+.quick-feature__row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.quick-feature--low-stock .quick-feature__icon-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Progress bar */
+.low-stock-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: calc(var(--qf-icon-width, 18px) + 0.625rem);
+  max-width: calc(100% - var(--qf-icon-width, 18px) - 0.625rem);
+}
+
+.low-stock-bar {
+  flex: 1 1 auto;
+  height: 4px;
+  background: #F1E6E4;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.low-stock-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #E74C3C 0%, #C0392B 100%);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.low-stock-bar__amount {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #C0392B;
+  white-space: nowrap;
+}
+
+.low-stock-badge__pulse {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #E74C3C;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.low-stock-badge__pulse::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(231, 76, 60, 0.55);
+  animation: sl-low-stock-pulse 1.3s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes sl-low-stock-pulse {
+  0%   { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  .product-price-row { column-gap: 0.5rem; }
+  .product-price-row__savings { font-size: 0.78rem; }
+}
+
+/* -----------------------------------------------------------
+ * Payment icons: match Add-to-Cart width with small inset
+ * ----------------------------------------------------------- */
+.payment-icons-block {
+  width: 100%;
+}
+
+.payment-icons-block__list {
+  max-width: 100% !important;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  justify-content: center !important;
+  align-items: center;
+  gap: 0.4rem !important;
+  flex-wrap: nowrap !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.payment-icons-block__list > li {
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.payment-icons-block__icon {
+  height: 28px !important;
+  max-width: 100%;
+}
+
+/* Tablet: icons shrink proportionally */
+@media (max-width: 749px) {
+  .payment-icons-block__list { gap: 0.3rem !important; }
+  .payment-icons-block__icon { height: 24px !important; }
+}
+
+/* Phone: all 9 icons fit within the column */
+@media (max-width: 480px) {
+  .payment-icons-block__list { gap: 0.22rem !important; }
+  .payment-icons-block__icon { height: 22px !important; }
+}
+
+@media (max-width: 380px) {
+  .payment-icons-block__icon { height: 18px !important; }
+}
+
+/* Tighter gap between Add-to-Cart and payment icons */
+.product-info__block-item[data-block-type="payment_icons"],
+.product-info__block-item[data-block-type="payment-icons"] {
+  --product-info-gap: 0.25rem;
+  margin-block-start: 0.25rem !important;
+}
+
+@media (max-width: 749px) {
+  .product-info__block-item[data-block-type="payment_icons"],
+  .product-info__block-item[data-block-type="payment-icons"] {
+    --product-info-gap: 0 !important;
+    margin-block-start: 0 !important;
+  }
+}
+
+/* Tighter gap between bundle widget and Add to Cart (buy-buttons block) */
+.product-info__block-item[data-block-type="buy-buttons"] {
+  --product-info-gap: 0.75rem !important;
+  margin-block-start: 0.75rem !important;
+}
+
+@media (max-width: 749px) {
+  .product-info__block-item[data-block-type="buy-buttons"] {
+    --product-info-gap: 0.5rem !important;
+    margin-block-start: 0.5rem !important;
+  }
+}

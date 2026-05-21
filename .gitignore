@@ -1,0 +1,19 @@
+# Shopify
+.shopify/
+*.zip
+
+# Working / temp files
+temp/
+temp-*
+
+# OS
+.DS_Store
+Thumbs.db
+__MACOSX/
+
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+*.env.local
